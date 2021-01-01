@@ -1,10 +1,15 @@
+import NavigationBar from "../components/navigation-bar/navigationBar";
+
 export default function Home() {
 	return (
 		<div>
+			<NavigationBar/>
 			<main>
 				<div>
 					<div>
-						<p></p>
+						<p>
+							Hello World
+						</p>
 						<p></p>
 					</div>
 				</div>
