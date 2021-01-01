@@ -7,17 +7,13 @@ import Button from "../../components/button/button";
 import BeatsPlayer from "../../components/beat-player/beat-player";
 import CartSummary from "../../components/cart-summary/cart-summary";
 import Footer from "../../components/footer/footer";
+import Header from "../../components/header/header";
 
 export default function Beats() {
 	return (
 		<Container className={`${utilStyles.backgroundColor} ${styles.metaContainer}`} fluid={true}>
 			{/*<NavigationBar/>*/}
-			<Row className={`justify-content-center ${utilStyles.headers} ${aboutMeStyles.header}`}>
-				<Col xs={11} lg={11}>
-					<h3 className={`${utilStyles.title} ${aboutMeStyles.title}`}>Beats</h3>
-					<hr className={utilStyles.hr}/>
-				</Col>
-			</Row>
+			<Header title={'Beats'}/>
 			<div className={`${styles.beatsDescriptionComp} ${utilStyles.text}`}>
 				<div className={`${styles.descriptionItem}`}>
 					<p className={`${styles.beatsDescriptionCompFirstP}`}>

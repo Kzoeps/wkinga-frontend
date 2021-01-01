@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+.cartReviewItemContainer{
+	justify-content: center;
+	display: flex;
+	width: 100%;
+}
+.playIcon{
+	color:#19252a;
+	font-size: 1.8rem;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.beatName{
+	font-family: 'Raleway', sans-serif;
+	margin-top: 5px;
+	font-size: 0.9rem;
+}
+.beatName span{
+	margin-left: 10px;
+}
+.producer{
+	font-size: 0.75rem;
+	margin-top: 5px;
+	color: #e6e6e6;
+}
+.producer span{
+	margin-left: 10px;
+}
+.playIconContainer{
+	width: 50px;
+	height: 50px;
+	position: relative;
+	border-radius: 50%;
+	background-color: #e6e6e6;
+	margin-right: 5px;
+}
+.priceAndLicense {
+	display: flex;
+	flex-direction: column;
+}
+.priceAndClose {
+	display: flex;
+	justify-content: space-between;
+	width: 115px;
+}
+.titleAndArtist {
+	display: flex;
+	flex-direction: column;
+	width: 135px;
+}
+.closeButton{
+	text-align: right;
+	margin-top: 5px;
+	font-size: 20px;
+	color: #A0927B;
+}
+.prices{
+	text-align: center;
+	font-size: 0.75rem;
+	margin-top: 7px;
+	width: 90px;
+	color: rgba(230, 230, 230, 0.7);
+}
+.licenseName{
+	text-align:left;
+	margin-left: 15px;
+	font-size: 0.75rem;
+	color: rgba(230, 230, 230, 0.7);
+	margin-bottom: 10px;
+	margin-top: 5px;
+}
+
+.cartReviewItemWholeContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.hr {
+	margin-left: 30px;
+}
+@media (min-width: 700px) {
+	.cartReviewItemContainer {
+		justify-content: left;
+	}
+}

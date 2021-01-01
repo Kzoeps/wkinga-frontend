@@ -1,16 +1,14 @@
-import styles from '../../pages/beats/beats.module.css';
+import styles from './cart-summary.module.css';
 import utilStyles from '../../assets/global-styles/utils.module.css';
 import Button from "../button/button";
 import {Link} from "react-router-dom";
+import Header from "../header/header";
+import Footer from "../footer/footer";
 
 export default function CartSummary(){
 	return (
 		<div className={`${styles.cartSummary}`}>
-			<div className={`${styles.cartSummaryTitle}`}>
-				<h3 className={`${utilStyles.headers} ${utilStyles.title} ${styles.title}`}>Cart
-					Summary</h3>
-				<hr className={`${utilStyles.hr}`}/>
-			</div>
+			<Header title={'Cart Summary'}/>
 			<div className={`${styles.cartSummaryItemPrice}`}>
 				<div className={`${utilStyles.text}`}>
 					<p>Item</p>
@@ -46,7 +44,7 @@ export default function CartSummary(){
 					</div>
 				</div>
 			</div>
-			<hr className={`${styles.totalHR}`}/>
+			<hr className={`${styles.cartSummaryhr}`}/>
 			<div className={`${styles.items}`}>
 				<div className={`${styles.eachItem}`}>
 					<div className={`${utilStyles.text}`}>
@@ -60,6 +58,7 @@ export default function CartSummary(){
 			<div className={`${styles.checkoutButton}`}>
 				<Link to="/checkout"><Button buttonLabel="Checkout"/></Link>
 			</div>
+			<Footer/>
 		</div>
 	)
 }
