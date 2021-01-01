@@ -1,0 +1,55 @@
+.receiptContainer{
+	width: 84%;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 35px !important;
+	margin-bottom: 20px;
+	background-color: #F5F5F5 !important;
+	padding: 20px;
+
+}
+
+.receiptTitleContainer, .receiptPriceContainer{
+	display: flex;
+	justify-content: space-between;
+}
+.receiptItemContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.receiptTitleContainer > p{
+	font-size: 12px;
+}
+.line{
+	width: 100%;
+	margin-top: -10px;
+	background-color: gray;
+}
+
+.item{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.itemContent > h6{
+	font-size: 12px;
+}
+.itemContent > p{
+	color: #B5B5B5;
+	font-size: 10px;
+}
+
+.item > p{
+	font-size: 12px;
+}
+.receiptPriceContainer{
+	font-size: 12px;
+}
+
+@media only screen and (min-width: 700px) {
+	.receiptContainer{
+		padding: 40px;
+	}
+}

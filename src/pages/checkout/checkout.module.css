@@ -1,0 +1,140 @@
+.checkoutContainer{
+	position: relative;
+	background-color: #19252a;
+
+}
+.checkOutTitleHolder{
+	margin-top: 100px;
+	color: #a0927b;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.checkOutTitleHolder > p {
+	font-size: 30px;
+}
+.formContainer{
+	margin: 0 auto;
+	width: 80%;
+	background-color: white;
+	padding: 25px;
+}
+.formStyle > label{
+	color: #000000;
+	margin-top: 20px;
+}
+
+.formStyle > input, .formStyle > textarea {
+	border-radius: 0 !important;
+}
+.checkoutButton{
+	background-color: #a0927b !important;
+	color: white !important;
+	width: 100%;
+	outline: none !important;
+	border: none !important;
+	margin-top: 20px !important;
+	border-radius: 0 !important;
+}
+.btnTypeholder{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding:10px;
+	margin-bottom: 40px;
+}
+.btnTypeholder > button {
+	color: #a0927b !important;
+	background-color: transparent;
+	border-radius: 0 !important;
+	padding: 30px 40px;
+	outline: none;
+	border: none;
+}
+
+.domesticBtn{
+	margin-right: 10px !important;
+}
+.active{
+	border-bottom: 3px #a0927b solid !important;
+}
+.popUp{
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+
+}
+.popUpTitle{
+	display: flex;
+	flex-direction: column;
+}
+.popUpTitle > h6{
+
+	margin-bottom: 40px;
+}
+
+.popupContainer{
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+
+
+}
+.formStyle2 {
+	margin-left: 30px;
+	margin-top: 30px;
+	display: flex;
+}
+.formStyle2 > label {
+	margin-right: 35px;
+}
+.formStyle2 > input {
+	border-radius: 12px !important;
+}
+.formStyle2 > label > a{
+	color: #489CEB !important;
+}
+.popUpBtnContainer{
+	display: flex;
+	align-items:center;
+	width: 100%;
+	padding: 20px 0px;
+	margin-top: 30px;
+}
+.popUpBtn, .popUpBtn1{
+	border: none !important;
+	outline: none !important;
+	border-radius: 0 !important;
+	font-size: 12px !important;
+}
+.popUpBtn1{
+	border: 2px #a0927b solid !important;
+	padding: 10px 34px !important;
+	margin-right: 20px !important;
+}
+.popUpBtn{
+	background-color: #a0927b !important;
+	color: white !important;
+	padding: 12px 27px !important;
+}
+
+
+@media only screen and (min-width: 700px) {
+	.formStyle > label{
+
+		margin-top: 30px;
+
+	}
+	.formStyle > input, .formStyle > textarea {
+		padding: 25px !important;
+	}
+	.checkoutButton{
+		margin-top: 30px !important;
+		padding: 15px !important;
+	}
+}
