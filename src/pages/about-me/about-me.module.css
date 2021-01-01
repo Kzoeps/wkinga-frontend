@@ -24,6 +24,17 @@
 .aboutPic{
 	display: none;
 }
+.descriptionWK {
+	width: 84%;
+	text-align: justify;
+	margin-left: 30px;
+}
+.collaborationContainer {
+	display: flex;
+	width: 84%;
+	margin-left: 30px;
+	justify-content: space-between;
+}
 @media (min-width: 700px) {
 	.collabHR{
 		background-color: #A0927B;
