@@ -1,4 +1,4 @@
-import {Col, Container, Row} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import Footer from "../../components/footer/footer";
 import utilStyles from '../../assets/global-styles/utils.module.css'
 import styles from './about-me.module.css';
