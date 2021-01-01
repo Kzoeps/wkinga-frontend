@@ -6,6 +6,7 @@ import aboutMeStyles from '../about-me/about-me.module.css'
 import Button from "../../components/button/button";
 import BeatsPlayer from "../../components/beat-player/beat-player";
 import CartSummary from "../../components/cart-summary/cart-summary";
+import Footer from "../../components/footer/footer";
 
 export default function Beats() {
 	return (
@@ -17,41 +18,26 @@ export default function Beats() {
 					<hr className={utilStyles.hr}/>
 				</Col>
 			</Row>
-			<Row className={`justify-content-center no-gutters ${styles.beatsDescription}`}>
-				<Col xs={8} lg={4} className={`${utilStyles.text} ${aboutMeStyles.text} ${styles.text}`}>
-					<p>
-						My beats are solely produced by me and i make them for fun but would be down for a collaboration
+			<div className={`${styles.beatsDescriptionComp} ${utilStyles.text}`}>
+				<div className={`${styles.descriptionItem}`}>
+					<p className={`${styles.beatsDescriptionCompFirstP}`}>
+						My beats are solely produced by me and i make them for fun but would be down for a
+						collaboration
 						as well.
 					</p>
+				</div>
+				<div className={`${styles.descriptionItem}`}>
 					<p>
 						The beats are licensed under apache 2.0 and please dont fork.
 						All beats are pretty good and if you really want to use but no money then email me.
 					</p>
-				</Col>
-			</Row>
-			<div className={`${styles.beatsDescriptionComp}`}>
-				<Col className={`${styles.beatsDescriptionContainer}`}>
-					<Row>
-						<Col lg={{span: 5}}
-							 className={`${utilStyles.text} ${aboutMeStyles.text} ${styles.text} ${styles.textContainer}`}>
-							<p className={`${styles.beatsDescriptionCompFirstP}`}>
-								My beats are solely produced by me and i make them for fun but would be down for a
-								collaboration
-								as well.
-							</p>
-							<p>
-								The beats are licensed under apache 2.0 and please dont fork.
-								All beats are pretty good and if you really want to use but no money then email me.
-							</p>
-						</Col>
-					</Row>
-				</Col>
+				</div>
 			</div>
-			<Row className={`no-gutters`}>
-				<Col xs={{span: 4, offset: 7}} className={styles.button}>
+			<div className={styles.buttonHolder}>
+				<Col className={styles.button}>
 					<Button buttonLabel="Checkout"/>
 				</Col>
-			</Row>
+			</div>
 			<div className={`${styles.cartAndBeats}`}>
 				<div className={`${styles.beatsPlayer} no-gutters`}>
 					<div className={styles.beatPlayer}>
@@ -73,6 +59,7 @@ export default function Beats() {
 				</div>
 				<CartSummary/>
 			</div>
+			<Footer/>
 		</Container>
 
 	)

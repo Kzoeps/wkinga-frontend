@@ -1,6 +1,8 @@
 .button{
 	box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.75);
 	margin-top: 15px;
+	width: 130px;
+	margin-right: 20px;
 }
 .beatPlayer{
 	margin-top: 50px;
@@ -18,11 +20,19 @@
 .text{
 	z-index: 1;
 }
+.buttonHolder{
+	display: flex;
+	justify-content: flex-end;
+}
 .computerImg {
 	display: none;
 }
 .beatsDescriptionComp{
-	display: none;
+	display: flex;
+	flex-direction: column;
+}
+.descriptionItem {
+	margin: 10px 15px;
 }
 .beatsPlayer{
 	display: flex;
@@ -106,11 +116,15 @@
 	.beatsDescriptionComp {
 		display: flex;
 		width: 100%;
-		height: 500px;
-		padding: 0!important;
+		justify-items: center;
+		height: 250px;
 	}
 	.metaContainer{
 		padding: 0!important;
+	}
+	.descriptionItem {
+		width: 500px;
+		margin: 0 auto;
 	}
 	.beatsDescriptionContainer{
 		width: 450px;
