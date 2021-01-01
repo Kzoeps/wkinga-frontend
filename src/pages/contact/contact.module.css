@@ -1,0 +1,59 @@
+.contactUsContainer{
+	position: relative;
+	background-color: #19252a;
+}
+.contactUsTitleHolder{
+	margin-top: 100px;
+	color: #a0927b;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.titleContent{
+	color: white;
+	text-align: center;
+	margin-top: 15px;
+}
+.formContainer{
+	margin: 0 auto;
+	width: 80%;
+	background-color: white;
+	padding: 25px;
+}
+.formStyle > label{
+	color: #000000;
+	margin-top: 20px;
+
+}
+
+.formStyle > input, .formStyle > textarea {
+	border-radius: 0 !important;
+}
+.contactUsButton{
+	background-color: #a0927b !important;
+	color: white !important;
+	width: 100%;
+	outline: none !important;
+	border: none !important;
+	margin-top: 20px !important;
+	border-radius: 0 !important;
+}
+
+@media only screen and (min-width: 700px) {
+	.formStyle > label{
+
+		margin-top: 30px;
+
+	}
+	.formStyle > input, .formStyle > textarea {
+		padding: 25px !important;
+	}
+	.contactUsButton{
+		margin-top: 30px !important;
+		padding: 15px !important;
+	}
+}

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import NavBar from "./nav-bar";
+import SideBar from "./tools/side-bar";
 
 const NavigationBar = () => {
 	const [toggleFlag, setToggleFlag] = useState(false);
@@ -12,7 +14,10 @@ const NavigationBar = () => {
 	}
 	return (
 		<div>
-
+			<NavBar hamHandler={hamHandler}/>
+			<SideBar close={closeHandler} show={toggleFlag}/>
 		</div>
 	)
 }
+
+export default NavigationBar;

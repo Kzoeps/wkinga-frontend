@@ -1,0 +1,102 @@
+.songInfo{
+	display: none;
+}
+.title{
+	color: #A0927B;
+}
+.aboutMeContainer{
+	margin-top: 20px;
+	height: 800px;
+}
+.text{
+	font-size: 0.8rem;
+}
+.collaborationAbove7{
+	display: none;
+}
+.albumImagesSecondRow {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+.albumImagesFirstRow {
+	margin-top: 20px;
+}
+.aboutPic{
+	display: none;
+}
+.descriptionWK {
+	width: 84%;
+	text-align: justify;
+	margin-left: 30px;
+}
+.collaborationContainer {
+	display: flex;
+	width: 84%;
+	margin-left: 30px;
+	justify-content: space-between;
+}
+@media (min-width: 700px) {
+	.collabHR{
+		background-color: #A0927B;
+		height: 2px;
+		width: 100%;
+		margin-top: 65px;
+		margin-bottom: 100px;
+	}
+	.header {
+		text-align: center;
+	}
+	.title{
+		font-size: 45px;
+	}
+	.descriptionWK{
+		margin-top: 90px;
+	}
+	.descriptionWK p {
+		margin-top: 90px !important;
+	}
+	.text{
+		font-size: 20px;
+		text-align: justify;
+		margin-top: 25px;
+		margin-bottom: 25px;
+	}
+	.aboutPic {
+		display: block;
+	}
+	.aboutPic img{
+		width: 100%;
+		height: 600px;
+	}
+	.collaborationHeader {
+		margin-top: 40px;
+	}
+	.albumImage {
+		text-align: right;
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+	.songInfo{
+		margin-left: 30px;
+		display: block;
+	}
+	.songInfo p {
+		margin-bottom: 45px;
+	}
+	.collabContainer{
+		margin-top: 35px;
+	}
+	.albumImagesSecondRow {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.albumImagesFirstRow {
+		margin-top: 0;
+	}
+	.collaborationBelow7 {
+		display: none;
+	}
+	.collaborationAbove7 {
+		display: flex;
+	}
+}
