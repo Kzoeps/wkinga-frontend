@@ -1,0 +1,173 @@
+.button{
+	box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.75);
+	margin-top: 15px;
+	width: 130px;
+	margin-right: 20px;
+}
+.beatPlayer{
+	margin-top: 50px;
+	box-shadow: 3px 7px 14px -2px #e6e6e65e
+}
+.djImg{
+	width: 180px;
+	position: absolute;
+	left: -65px;
+	z-index: 0;
+}
+.checkoutButton > a{
+	text-decoration: none;
+}
+.text{
+	z-index: 1;
+}
+.buttonHolder{
+	display: flex;
+	justify-content: flex-end;
+}
+.computerImg {
+	display: none;
+}
+.beatsDescriptionComp{
+	display: flex;
+	flex-direction: column;
+}
+.descriptionItem {
+	margin: 10px 15px;
+}
+.beatsPlayer{
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+}
+.beatPlayer{
+	width: 330px;
+	height: auto;
+}
+.cartAndBeats {
+	display: flex;
+	justify-content: space-evenly;
+}
+.cartSummary {
+	display: none;
+}
+@media (min-width: 700px) {
+	.beatsPlayer{
+		width: 500px;
+		height: auto;
+	}
+	.beatPlayer {
+		width: 350px;
+		height: auto;
+	}
+	.cartSummary {
+		display: flex;
+		text-align: center;
+		flex-direction: column;
+		width: 400px;
+		height: auto;
+		background-color: #233237;
+		margin-top: 30px;
+	}
+	.title{
+		margin-top: 10px !important;
+	}
+	.cartSummaryItemPrice{
+		display: flex;
+		width: 380px;
+		margin-left: 10px;
+		justify-content: space-between;
+	}
+	.cartSummaryItemPrice p {
+		margin-left: 5px;
+		margin-right: 5px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+	.cartSummaryTitle{
+		width: 380px;
+		margin-top: 20px;
+		margin-left: 10px;
+		text-align: left;
+	}
+	.eachItem{
+		display: flex;
+		margin-top: 15px;
+		justify-content: space-between;
+	}
+	.totalHR{
+		margin-top: 20px;
+		background-color: white;
+		width: 380px;
+		margin-left: 10px;
+	}
+	.items{
+		display: flex;
+		justify-content: space-around;
+		flex-direction: column;
+		width: 380px;
+		margin-left: 10px;
+	}
+	.cartSummaryhr{
+		background-color: white;
+		margin-top: 5px !important;
+		width: 380px;
+		margin-left: 10px;
+	}
+	.beatsDescriptionComp {
+		display: flex;
+		width: 100%;
+		justify-items: center;
+		height: 250px;
+	}
+	.metaContainer{
+		padding: 0!important;
+	}
+	.descriptionItem {
+		width: 500px;
+		margin: 0 auto;
+	}
+	.beatsDescriptionContainer{
+		width: 450px;
+		margin: 0 0 30px 150px;
+	}
+	.beatsDescriptionCompFirstP {
+		margin-top: 20px !important;
+	}
+
+	.beatsDescription{
+		display: none;
+	}
+	.djImg {
+		width: 350px;
+		height: 400px;
+		position: static;
+	}
+	.beatsImg{
+		width: 100%;
+		height: auto;
+	}
+	.phoneImg {
+		display: none;
+	}
+	.button {
+		display: none;
+	}
+	.computerImg {
+		display: flex;
+	}
+	.beatPlayer{
+		justify-content: left !important;
+	}
+	.text p{
+		margin: 50px 10px;
+		line-height: 30px;
+	}
+	.textContainer{
+		background-color: rgba(160, 146, 123, 0.55);
+	}
+	.checkoutButton{
+		width: 130px;
+		height: auto;
+		margin: auto;
+	}
+}

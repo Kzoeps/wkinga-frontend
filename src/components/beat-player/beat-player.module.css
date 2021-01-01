@@ -1,0 +1,48 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+.beatsPlayerContainer{
+	background-color: #e6e6e6;
+	display: flex;
+}
+.albumArtContainer{
+	width: 80px;
+}
+.albumArtContainer img {
+	width: 100%;
+}
+
+.beatDescription {
+	display: flex;
+	flex-direction: column;
+}
+.songTitleMinute {
+	display: flex;
+	justify-content: space-between;
+	width: 240px;
+}
+.songTitle{
+	font-family: 'Raleway', sans-serif;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.songMinute{
+	margin-top: 10px;
+}
+.prodCart{
+	display: flex;
+	width: 240px;
+	justify-content: space-between;
+}
+.beatProd{
+	margin-left: 10px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 0.8rem;
+	margin-top: 15px;
+}
+.cartBtn{
+	width: 80px;
+	font-size: 0.6rem !important;
+	margin-top: 10px;
+	border-radius: 3px;
+}
