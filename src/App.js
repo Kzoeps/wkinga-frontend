@@ -4,8 +4,8 @@ import CartReview from "./pages/cart-review/cart-review";
 import AboutMe from "./pages/about-me/about-me";
 import Contact from './pages/contact/contact'
 import Checkout from "./pages/checkout/checkout";
-import BeatsContainer from "./pages/beats/beatsContainer";
-import HomeContainer from "./pages/home/homeContainer";
+import BeatsContainer from "./pages/beats/beats-container";
+import HomeContainer from "./pages/home/home-container";
 
 function App() {
   return (
