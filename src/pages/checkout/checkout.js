@@ -1,5 +1,5 @@
 import styles from './checkout.module.css';
-import NavigationBar from "../../components/navigation-bar/navigationBar";
+// import NavigationBar from "../../components/navigation-bar/navigationBar";
 import Footer from "../../components/footer/footer";
 import {Button} from "@material-ui/core";
 import {useState} from "react";
@@ -154,7 +154,7 @@ export default function Checkout() {
 													id="exampleCheck1"
 													onChange={handleCheck}/>
 												<label className="form-check-label" htmlFor="exampleCheck1">I agree to the
-													<a>terms and condition.</a>
+													<a href={'https://dummy.com'}>terms and condition.</a>
 												</label>
 											</div>
 											<div className={styles.popUpBtnContainer}>
@@ -207,7 +207,7 @@ export default function Checkout() {
 													id="exampleCheck1"
 													onChange={handleCheck}/>
 												<label className="form-check-label" htmlFor="exampleCheck1">I agree to the
-													<a> terms and condition.</a>
+													<a href={'https://chcekout.com'}> terms and condition.</a>
 												</label>
 											</div>
 											<div className={styles.popUpBtnContainer}>

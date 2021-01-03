@@ -1,19 +1,19 @@
 import './App.css';
-import Home from "./pages/home/home";
 import {BrowserRouter, Switch, Route } from "react-router-dom";
-import Beats from "./pages/beats/beats";
 import CartReview from "./pages/cart-review/cart-review";
 import AboutMe from "./pages/about-me/about-me";
 import Contact from './pages/contact/contact'
 import Checkout from "./pages/checkout/checkout";
+import BeatsContainer from "./pages/beats/beats-container";
+import HomeContainer from "./pages/home/home-container";
 
 function App() {
   return (
   	<BrowserRouter>
 		<Switch>
-			<Route exact path={'/'} component={Home}/>
-			<Route exact path={'/home'} component={Home}/>
-			<Route exact path={'/beats'} component={Beats}/>
+			<Route exact path={'/'} component={HomeContainer}/>
+			<Route exact path={'/home'} component={HomeContainer}/>
+			<Route exact path={'/beats'} component={BeatsContainer}/>
 			<Route exact path={'/cart-review'} component={CartReview}/>
 			<Route exact path={'/about-me'} component={AboutMe}/>
 			<Route exact path={'/contact'} component={Contact}/>
