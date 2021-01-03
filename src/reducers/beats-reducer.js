@@ -4,7 +4,7 @@ import {baseURL} from "../api/baseURL";
 
 export const fetchBeats = createAsyncThunk('beats/fetchBeats', async () => {
 	const response = await axios.get(`${baseURL}/beats`)
-	return response
+	return response.data
 })
 
 export const beatsSlice = createSlice({
@@ -40,7 +40,8 @@ export const beatsSlice = createSlice({
 
 // selector to get the beats from the store.
 export const selectAllBeats = state => state.beats.beats;
-export const selectSongById = (state, songId) => state.beats.beats.find(song => song.id === songId);
+export const selectBeatById = (state, songId) => state.beats.beats.find(song => song.id === songId);
+export const selectBeatsStatus = state => state.beats.status;
 
 export const { addBeat, updateBeats } = beatsSlice.actions;
 

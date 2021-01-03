@@ -58,7 +58,6 @@ export default function CartSummary(){
 			<div className={`${styles.checkoutButton}`}>
 				<Link to="/checkout"><Button buttonLabel="Checkout"/></Link>
 			</div>
-			<Footer/>
 		</div>
 	)
 }
