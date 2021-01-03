@@ -1,8 +1,8 @@
-import NavigationBar from "../../components/navigation-bar/navigationBar";
-import {Col, Container, Row} from "react-bootstrap";
+// import NavigationBar from "../../components/navigation-bar/navigationBar";
+import {Col, Container } from "react-bootstrap";
 import utilStyles from '../../assets/global-styles/utils.module.css';
 import styles from './beats.module.css';
-import aboutMeStyles from '../about-me/about-me.module.css'
+// import aboutMeStyles from '../about-me/about-me.module.css';
 import Button from "../../components/button/button";
 import BeatsPlayer from "../../components/beat-player/beat-player";
 import CartSummary from "../../components/cart-summary/cart-summary";

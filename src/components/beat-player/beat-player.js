@@ -8,7 +8,7 @@ export default function BeatsPlayer(props) {
 	return (
 		<div className={styles.beatsPlayerContainer}>
 			<div className={styles.albumArtContainer}>
-				<img src={props.imgURL}/>
+				<img src={props.imgURL} alt={'album'}/>
 			</div>
 			<div className={styles.beatDescription}>
 				<div className={styles.songTitleMinute}>

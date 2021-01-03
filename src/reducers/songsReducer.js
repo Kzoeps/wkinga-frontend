@@ -1,23 +1,47 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import {baseURL} from "../api/baseURL";
 
-export const songsSlice = createSlice({
-	name: 'songs',
+export const fetchBeats = createAsyncThunk('beats/fetchBeats', async () => {
+	const response = await axios.get(`${baseURL}/beats`)
+	return response
+})
+
+export const beatsSlice = createSlice({
+	name: 'beats',
 	initialState: {
-		songs: []
+		beats: [],
+		status: 'idle',
+		error: null
 	},
 	reducers: {
-		addSong: (state, action) => {
-			state.songs.push(action.payload);
+		addBeat: (state, action) => {
+			state.beats.push(action.payload);
 		},
-		updateSongs: (state,action) => {
-			state.songs = action.payload;
+		updateBeat: (state,action) => {
+			state.beats = action.payload;
+		}
+	},
+	extraReducers: {
+		[fetchBeats.pending]: (state, action) => {
+			state.status = 'pending'
+		},
+		[fetchBeats.fulfilled]: (state, action) => {
+			state.status = 'completed';
+			state.beats = state.beats.concat(action.payload);
+		},
+		[fetchBeats.rejected]: (state,action) => {
+			state.status = 'failed'
+			state.error =  action.error.message;
 		}
 	}
 })
 
-// selector to get the songs from the store.
-export const selectSongs = state => state.songs.songs;
 
-export const { addSong, updateSongs } = songsSlice.actions;
+// selector to get the beats from the store.
+export const selectAllBeats = state => state.beats.beats;
+export const selectSongById = (state, songId) => state.beats.beats.find(song => song.id === songId);
 
-export default songsSlice.reducer;
+export const { addBeat, updateBeats } = beatsSlice.actions;
+
+export default beatsSlice.reducer;
