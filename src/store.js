@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import beatsReducer from "./reducers/songsReducer";
-import cartReducer from "./reducers/cartReducer";
+import beatsReducer from "./reducers/beats-reducer";
+import cartReducer from "./reducers/cart-reducer";
 
 export default configureStore({
 	reducer: {
