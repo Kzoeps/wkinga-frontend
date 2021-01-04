@@ -43,22 +43,6 @@ export default function Beats(props) {
 							</div>
 						)
 					) : <div>Loading ...</div>}
-					{/*<div className={styles.beatPlayer}>*/}
-					{/*	<BeatsPlayer beatDuration="2:59"*/}
-					{/*				 imgURL="https://images.genius.com/8ababae027808d8f2de49bfcfc51488d.592x592x1.png"/>*/}
-					{/*</div>*/}
-					{/*<div className={styles.beatPlayer}>*/}
-					{/*	<BeatsPlayer beatDuration="3:00"*/}
-					{/*				 imgURL={"https://upload.wikimedia.org/wikipedia/en/5/52/HeadInTheClouds-Album.jpg"}/>*/}
-					{/*</div>*/}
-					{/*<div className={styles.beatPlayer}>*/}
-					{/*	<BeatsPlayer beatDuration="1:54"*/}
-					{/*				 imgURL={"https://upload.wikimedia.org/wikipedia/en/1/10/Childish_Gambino_-_Awaken%2C_My_Love%21.png"}/>*/}
-					{/*</div>*/}
-					{/*<div className={styles.beatPlayer}>*/}
-					{/*	<BeatsPlayer beatDuration="1:23"*/}
-					{/*				 imgURL={"https://upload.wikimedia.org/wikipedia/en/5/52/HeadInTheClouds-Album.jpg"}/>*/}
-					{/*</div>*/}
 				</div>
 				<div className={styles.cartSummary}><CartSummary/></div>
 			</div>
