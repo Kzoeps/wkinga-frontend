@@ -1,6 +1,6 @@
 import styles from './home.module.css'
 import Footer from "../../components/footer/footer";
-import NavigationBar from "../../components/navigation-bar/navigationBar";
+// import NavigationBar from "../../components/navigation-bar/navigationBar";
 import Playlist from "../../components/playlist/playlist";
 
 export default function Home(props) {
