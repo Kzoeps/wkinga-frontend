@@ -1,20 +1,30 @@
 import styles from "./license-info.module.css";
-import {FaCheckCircle} from "react-icons/fa"
+import {FaCheckCircle} from "react-icons/fa";
+import {useDispatch} from "react-redux";
+import {addBeatToCart} from "../../reducers/cart-reducer";
 
 export default function LicenseInfo(props) {
+	const licenseType = Object.keys(props.beatInfo)[0];
+	const dispatch = useDispatch();
+
+	const onCartAddClick = () => {
+		props.setShow(false);
+		props.setLabel('Remove From Cart');
+		dispatch(addBeatToCart(props.beatId, licenseType))
+	}
+
 	return(
-		//:TODO: decide which are gonna be props and how its all going to work
-		//what i have in mind right now is that a props is going to be passed which is the song id and then info corresponding to that id
-		<div className={props.lastLicense ? `${styles.lastLicenseInfoContainer}`:`${styles.licenseInfoContainer}`}>
+		//TODO: exchange price and also file types for each license type;
+		<div className={`${styles.licenseInfoContainer}`}>
 				<div className={`${styles.licenseNamePrice}`}>
 					<div className={`${styles.licenseName}`}>
 						<h4 className={``}>
-							LEASE
+							{licenseType ? licenseType : 'error'}
 						</h4>
 					</div>
 					<div className={`${styles.licensePriceContainer}`}>
 						<h4 className={`${styles.licensePrice}`}>
-							30$ / BTN 2100
+							{`${props.beatInfo[licenseType]}$ / ${props.beatInfo[licenseType]*75}BTN`}
 						</h4>
 					</div>
 				</div>
@@ -24,10 +34,7 @@ export default function LicenseInfo(props) {
 					</div>
 					<div className={`${styles.selectLicense}`}>
 						<FaCheckCircle className={`${styles.selectLicenseIcon}`}
-									   onClick={()=>{
-										   props.setShow(false);
-										   props.setLabel('Remove From Cart')
-									   }}
+									   onClick={onCartAddClick}
 						/>
 					</div>
 				</div>

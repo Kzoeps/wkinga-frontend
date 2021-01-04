@@ -3,17 +3,31 @@ import { createSlice } from "@reduxjs/toolkit";
 export const cartSlice = createSlice({
 	name: 'cart',
 	initialState: {
-		beats: []
+		beats: [],
+		currentBeat: undefined
 	},
 	reducers: {
-		addBeat: {
+		addBeatToCart: {
 			reducer (state, action) {
-				state.beats.push(action.payload.id)
+				debugger;
+				const beat =state.beats.map((beat) => {
+					debugger;
+					console.log(beat);
+				})
+				// const beat = state.beats.filter((beat) => {
+				// 	debugger;
+				// 	beat.id !== action.payload.id;
+				// });
+				console.log(beat);
+				if (!beat) {
+					state.beats.push(action.payload);
+				}
 			},
-			prepare (beatId) {
+			prepare (beatId, licenseType) {
 				return {
 					payload: {
-						id: beatId
+						beatId,
+						licenseType
 					}
 				}
 			}
@@ -29,12 +43,17 @@ export const cartSlice = createSlice({
 					}
 				}
 			}
+		},
+		setCurrentBeat: {
+			reducer (state, action) {
+				state.currentBeat = action.payload
+			}
 		}
 	}
 })
 
 export const selectCart = state => state.cart.beats;
 
-export const { addBeat, removeBeat } = cartSlice.actions;
+export const { addBeatToCart, removeBeat, setCurrentBeat } = cartSlice.actions;
 
 export default cartSlice.reducer;
