@@ -6,6 +6,7 @@ import Contact from './pages/contact/contact'
 import Checkout from "./pages/checkout/checkout";
 import BeatsContainer from "./pages/beats/beats-container";
 import HomeContainer from "./pages/home/home-container";
+import 'react-bootstrap/dist/react-bootstrap';
 
 function App() {
   return (
