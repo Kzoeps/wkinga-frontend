@@ -6,15 +6,15 @@
 	justify-content: space-between;
 }
 .licenseFormContainer{
-	background-color: rgba(230, 230, 230, 0.8);
+	background-color: rgba(230, 230, 230, 0.9);
 	margin-top: 20px;
 	position: fixed;
 	top: 70px;
 	left: 5px;
-	backdrop-filter: blur(15px);
+	/*backdrop-filter: blur(15px);*/
 	z-index: 200;
-	width: 84%;
-	margin-left: 30px;
+	width: 90%;
+	margin-left: 15px;
 }
 .titleAndArtist{
 	width: 140px;

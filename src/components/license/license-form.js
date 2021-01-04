@@ -1,4 +1,3 @@
-import {Row, Col} from "react-bootstrap";
 import styles from "./license-form.module.css";
 import utilStyles from '../../assets/global-styles/utils.module.css';
 import {FaWindowClose} from "react-icons/fa"
