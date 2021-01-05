@@ -26,7 +26,7 @@ export const cartSlice = createSlice({
 		},
 		removeBeat: {
 			reducer(state, action) {
-				state.beats.filter((eachBeat) => eachBeat.beatId !== action.payload.beatId);
+				state.beats = state.beats.filter((eachBeat) => eachBeat.beatId !== action.payload.beatId);
 			},
 			prepare(beatId) {
 				return {

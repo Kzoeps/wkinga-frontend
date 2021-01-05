@@ -3,7 +3,7 @@ import styles from "./beat-player.module.css";
 import Button from "../button/button";
 import LicenseForm from "../license/license-form";
 import { useDispatch } from "react-redux";
-import {setCurrentBeat} from "../../reducers/cart-reducer";
+import {removeBeat, setCurrentBeat} from "../../reducers/cart-reducer";
 
 export default function BeatsPlayer(props) {
 	const [showForm, setForm] = useState(false);
@@ -16,6 +16,7 @@ export default function BeatsPlayer(props) {
 			dispatch(setCurrentBeat(props.beat));
 		} else {
 			setLabel('Add To Cart');
+			dispatch(removeBeat(props.beat.id));
 		}
 	}
 	return (
