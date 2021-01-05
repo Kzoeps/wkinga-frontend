@@ -8,6 +8,7 @@ import BeatsPlayer from "../../components/beat-player/beat-player";
 import CartSummary from "../../components/cart-summary/cart-summary";
 import Footer from "../../components/footer/footer";
 import Header from "../../components/header/header";
+import {Link} from "react-router-dom";
 
 export default function Beats(props) {
 	return (
@@ -31,7 +32,7 @@ export default function Beats(props) {
 			</div>
 			<div className={styles.buttonHolder}>
 				<Col className={styles.button}>
-					<Button buttonLabel="Checkout"/>
+					<Link to={'/cart-review'}><Button buttonLabel="Checkout"/></Link>
 				</Col>
 			</div>
 			<div className={`${styles.cartAndBeats}`}>

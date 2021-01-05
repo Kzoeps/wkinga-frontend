@@ -5,13 +5,15 @@ import CartReviewItem from "../../components/cart-review-item/cart-review-item";
 import CartSummary from "../../components/cart-summary/cart-summary";
 import Footer from "../../components/footer/footer";
 
-export default function CartReview() {
+export default function CartReview(props) {
+	debugger;
 	return (
 		<Container className={`${utilStyles.backgroundColor}`}>
 			<Header title={'Cart Review'}/>
-				<CartReviewItem/>
-				<CartReviewItem/>
-				<CartReviewItem/>
+			{props.cartItems}
+			{/*<CartReviewItem/>*/}
+			{/*<CartReviewItem/>*/}
+			{/*<CartReviewItem/>*/}
 			<CartSummary/>
 			<Footer/>
 		</Container>

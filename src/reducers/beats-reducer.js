@@ -40,7 +40,7 @@ export const beatsSlice = createSlice({
 
 // selector to get the beats from the store.
 export const selectAllBeats = state => state.beats.beats;
-export const selectBeatById = (state, songId) => state.beats.beats.find(song => song.id === songId);
+export const selectBeatById = (state, beatId) => state.beats.beats.find(beat => beat.id === beatId);
 export const selectBeatsStatus = state => state.beats.status;
 
 export const { addBeat, updateBeats } = beatsSlice.actions;
