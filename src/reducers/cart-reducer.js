@@ -1,29 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
+const initialState = {
+	beats: [],
+	currentBeat: undefined
+}
 export const cartSlice = createSlice({
 	name: 'cart',
-	initialState: {
-		beats: [],
-		currentBeat: undefined
-	},
+	initialState,
 	reducers: {
 		addBeatToCart: {
-			reducer (state, action) {
-				debugger;
-				const beat =state.beats.map((beat) => {
-					debugger;
-					console.log(beat);
-				})
-				// const beat = state.beats.filter((beat) => {
-				// 	debugger;
-				// 	beat.id !== action.payload.id;
-				// });
-				console.log(beat);
-				if (!beat) {
+			reducer(state, action) {
+				const filtered = state.beats.filter((beat) => beat.beatId === action.payload.beatId)
+				if (filtered.length === 0) {
 					state.beats.push(action.payload);
 				}
 			},
-			prepare (beatId, licenseType) {
+			prepare(beatId, licenseType) {
 				return {
 					payload: {
 						beatId,
@@ -33,19 +25,19 @@ export const cartSlice = createSlice({
 			}
 		},
 		removeBeat: {
-			reducer (state, action) {
-				state.beats.filter((eachBeat) => eachBeat.id !== action.payload.id);
+			reducer(state, action) {
+				state.beats.filter((eachBeat) => eachBeat.beatId !== action.payload.beatId);
 			},
-			prepare (beatId) {
+			prepare(beatId) {
 				return {
 					payload: {
-						id: beatId
+						beatId
 					}
 				}
 			}
 		},
 		setCurrentBeat: {
-			reducer (state, action) {
+			reducer(state, action) {
 				state.currentBeat = action.payload
 			}
 		}
@@ -54,6 +46,6 @@ export const cartSlice = createSlice({
 
 export const selectCart = state => state.cart.beats;
 
-export const { addBeatToCart, removeBeat, setCurrentBeat } = cartSlice.actions;
+export const {addBeatToCart, removeBeat, setCurrentBeat} = cartSlice.actions;
 
 export default cartSlice.reducer;
