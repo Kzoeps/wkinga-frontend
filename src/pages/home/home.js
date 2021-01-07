@@ -4,7 +4,6 @@ import Footer from "../../components/footer/footer";
 import Playlist from "../../components/playlist/playlist";
 
 export default function Home(props) {
-
 	return (
 		<div className={styles.containerEn}>
 			{/*<NavigationBar/>*/}
