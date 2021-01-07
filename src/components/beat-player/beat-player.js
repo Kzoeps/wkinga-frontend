@@ -2,12 +2,15 @@ import {useState} from "react";
 import styles from "./beat-player.module.css";
 import Button from "../button/button";
 import LicenseForm from "../license/license-form";
-import { useDispatch } from "react-redux";
-import {removeBeat, setCurrentBeat} from "../../reducers/cart-reducer";
+import {useDispatch, useSelector} from "react-redux";
+import {removeBeat, selectCart, setCurrentBeat} from "../../reducers/cart-reducer";
 
 export default function BeatsPlayer(props) {
+
+	const cart = useSelector(selectCart);
+	const inCart = cart.find((eachBeat) => eachBeat.beatId === props.beat.id);
 	const [showForm, setForm] = useState(false);
-	const [btnLabel, setLabel] = useState('Add To Cart');
+	const [btnLabel, setLabel] = useState(inCart ? 'Remove From Cart' : 'Add To Cart');
 	const dispatch = useDispatch();
 
 	const onAddToCartClicked = () => {
