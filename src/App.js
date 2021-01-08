@@ -7,6 +7,7 @@ import BeatsContainer from "./pages/beats/beats-container";
 import HomeContainer from "./pages/home/home-container";
 import 'react-bootstrap/dist/react-bootstrap';
 import CartReviewContainer from "./pages/cart-review/cart-review-container";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 	return (

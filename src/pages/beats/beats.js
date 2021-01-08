@@ -1,5 +1,4 @@
 // import NavigationBar from "../../components/navigation-bar/navigationBar";
-import {Col, Container} from "react-bootstrap";
 import utilStyles from '../../assets/global-styles/utils.module.css';
 import styles from './beats.module.css';
 // import aboutMeStyles from '../about-me/about-me.module.css';
@@ -12,7 +11,7 @@ import {Link} from "react-router-dom";
 
 export default function Beats(props) {
 	return (
-		<Container className={`${utilStyles.backgroundColor} ${styles.metaContainer}`} fluid={true}>
+		<div className={`${utilStyles.backgroundColor} ${styles.metaContainer}`}>
 			{/*<NavigationBar/>*/}
 			<Header title={'Beats'}/>
 			<div className={`${styles.beatsDescriptionComp} ${utilStyles.text}`}>
@@ -31,9 +30,9 @@ export default function Beats(props) {
 				</div>
 			</div>
 			<div className={styles.buttonHolder}>
-				<Col className={styles.button}>
+				<div className={styles.button}>
 					<Link to={'/cart-review'}><Button buttonLabel="Checkout"/></Link>
-				</Col>
+				</div>
 			</div>
 			<div className={`${styles.cartAndBeats}`}>
 				<div className={`${styles.beatsPlayer} no-gutters`}>
@@ -48,7 +47,7 @@ export default function Beats(props) {
 				<div className={styles.cartSummary}><CartSummary/></div>
 			</div>
 			<Footer/>
-		</Container>
+		</div>
 
 	)
 }
