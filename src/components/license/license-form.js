@@ -10,7 +10,7 @@ export default function LicenseForm(props) {
 	const licensePrices = [{'Trackout Lease': beat.trackoutLeasePrice}, {'Premium Lease':beat.premiumLeasePrice}, {'Exclusive': beat.exclusivePrice}];
 
 	const licensesInfo = licensePrices.map(license => (
-		<LicenseInfo key={nanoid()} beatInfo={license} beatId={beat.id} setShow={props.setShow} setLabel={props.setLabel}/>
+		<LicenseInfo key={nanoid()} beatInfo={license} beat={beat} beatId={beat.id} setShow={props.setShow} setLabel={props.setLabel}/>
 	))
 
 	return (

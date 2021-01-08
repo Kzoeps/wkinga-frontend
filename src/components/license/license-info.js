@@ -10,7 +10,7 @@ export default function LicenseInfo(props) {
 	const onCartAddClick = () => {
 		props.setShow(false);
 		props.setLabel('Remove From Cart');
-		dispatch(addBeatToCart(props.beatId, licenseType))
+		dispatch(addBeatToCart(props.beat, licenseType))
 	}
 
 	return(
