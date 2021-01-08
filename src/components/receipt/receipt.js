@@ -1,7 +1,22 @@
 import styles from './receipt.module.css';
 import {Card} from '@material-ui/core';
+import {useSelector} from "react-redux";
+import {getLicensePrice, selectCart} from "../../reducers/cart-reducer";
 
 export default function Receipt() {
+	const beatsInCart = useSelector(selectCart);
+	const cartTotal = beatsInCart.reduce((sumPrice, currentBeat) => {
+		return {totalPrice: sumPrice.totalPrice + getLicensePrice(currentBeat)}
+	}, {totalPrice: 0});
+	const items = beatsInCart.map((eachBeat) => (
+		<div className={styles.item}>
+			<div className={styles.itemContent}>
+				<h6>{eachBeat.beatName}</h6>
+				<p>{eachBeat.chosenLicenseType}</p>
+			</div>
+			<p>{getLicensePrice(eachBeat)}$</p>
+		</div>
+	))
 	return (
 		<Card className={styles.receiptContainer}>
 			<div className={styles.receiptTitleContainer}>
@@ -11,33 +26,12 @@ export default function Receipt() {
 			<hr className={styles.line}/>
 
 			<div className={styles.receiptItemContainer}>
-				{/* Use map funcion to display the item when the backend is ready */}
-				<div className={styles.item}>
-					<div className={styles.itemContent}>
-						<h6>Wangchuk Kinga beats 1</h6>
-						<p>Lease</p>
-					</div>
-					<p>30$</p>
-				</div>
-				<div className={styles.item}>
-					<div className={styles.itemContent}>
-						<h6>Wangchuk Kinga beats 1</h6>
-						<p>Lease</p>
-					</div>
-					<p>30$</p>
-				</div>
-				<div className={styles.item}>
-					<div className={styles.itemContent}>
-						<h6>Wangchuk Kinga beats 1</h6>
-						<p>Lease</p>
-					</div>
-					<p>30$</p>
-				</div>
+				{items}
 			</div>
 			<hr className={styles.line}/>
 			<div className={styles.receiptPriceContainer}>
 				<p>Total</p>
-				<p>90$</p>
+				<p>{cartTotal.totalPrice}$</p>
 			</div>
 		</Card>
 	)

@@ -21,6 +21,9 @@
 	margin-top: 5px;
 	margin-bottom: 10px;
 }
+h4 {
+	font-size: 1.1rem !important;
+}
 .lastLicenseInfoContainer{
 	background-color: #19252a;
 	margin-top: 20px;
