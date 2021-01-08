@@ -24,7 +24,6 @@ export default function Contact() {
 
 	return (
 		<div className={styles.contactUsContainer}>
-			{/*<NavigationBar/>*/}
 			<div className={styles.contactUsTitleHolder}>
 				<p>Got a Questions</p>
 				<h3>Contact WBK</h3>

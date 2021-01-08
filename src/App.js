@@ -8,10 +8,12 @@ import HomeContainer from "./pages/home/home-container";
 import 'react-bootstrap/dist/react-bootstrap';
 import CartReviewContainer from "./pages/cart-review/cart-review-container";
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import NavagationBar from './components/navigation-bar/navigationBar';
 
 function App() {
 	return (
 		<BrowserRouter>
+		{/* <NavagationBar /> */}
 			<Switch>
 				<Route exact path={'/'} component={HomeContainer}/>
 				<Route exact path={'/home'} component={HomeContainer}/>

@@ -1,12 +1,10 @@
 import styles from './home.module.css'
 import Footer from "../../components/footer/footer";
-// import NavigationBar from "../../components/navigation-bar/navigationBar";
 import Playlist from "../../components/playlist/playlist";
 
 export default function Home(props) {
 	return (
 		<div className={styles.containerEn}>
-			{/*<NavigationBar/>*/}
 			<main className={styles.mainPage}>
 				<div className={styles.mainContentContainer}>
 					<div className={styles.homeHeadingContainer}>

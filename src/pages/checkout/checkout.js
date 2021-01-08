@@ -1,5 +1,4 @@
 import styles from './checkout.module.css';
-// import NavigationBar from "../../components/navigation-bar/navigationBar";
 import Footer from "../../components/footer/footer";
 import {Button} from "@material-ui/core";
 import {useState} from "react";
@@ -64,7 +63,6 @@ export default function Checkout() {
 	}
 	return (
 		<div className={styles.checkoutContainer}>
-			{/*<NavigationBar/>*/}
 			<div className={styles.checkOutTitleHolder}>
 				<p>Check Out</p>
 				<div className={styles.btnTypeholder}>
