@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import NavBar from "./nav-bar";
-import SideBar from "./tools/side-bar";
+import React, { useState } from 'react'
+import NavBar from './nav-bar';
+import SideBar from './tools/side-bar';
 
 const NavigationBar = () => {
 	const [toggleFlag, setToggleFlag] = useState(false);
 	const hamHandler = () => {
 		if (!toggleFlag) {
-			setToggleFlag(true);
+			setToggleFlag(true)
 		}
+
 	}
 	const closeHandler = () => {
 		setToggleFlag(false);
@@ -20,4 +21,4 @@ const NavigationBar = () => {
 	)
 }
 
-export default NavigationBar;
+export default NavigationBar

@@ -1,10 +1,14 @@
+import React from 'react'
+import styles from './ham.module.css';
+
 const HamBurger = ({click}) => {
 	return (
-		<button onClick={click}>
-			<div>x</div>
-			<div>x</div>
-			<div>x</div>
+		<button className={styles.hamburger} onClick={click}>
+			<div className={styles.hamLine}></div>
+			<div className={styles.hamLine}></div>
+			<div className={styles.hamLine}></div>
 		</button>
 	)
 }
-export default HamBurger;
+
+export default HamBurger

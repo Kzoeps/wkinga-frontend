@@ -1,34 +1,33 @@
-import {useState} from 'react';
-import Logo from '../../assets/images/logo.svg';
+import styles from './navbar.module.css';
+import HamBurger from './tools/ham';
+import {FaShoppingCart} from "react-icons/fa"
 import {Link} from 'react-router-dom';
-import {FaShoppingCart} from "react-icons/all";
-import HamBurger from "./tools/ham";
 
-const NavBar = ({hamHandler}) => {
-	const [count, setCount] = useState(0);
+const Navbar = ({hamHandler}) => {
 	return (
-		<header>
-			<div>
+		<header className={styles.navBar}>
+			<div className={styles.hamHolder}>
 				<HamBurger click={hamHandler}/>
 			</div>
-			<div>
-				<img src={Logo} alt={'hello'}/>
+			<div className={styles.img_container}>
+				<img className={styles.header__logo} src='images/logo.svg' alt="Hello"/>
 			</div>
-			<nav>
+
+			<nav className={styles.header__navigation}>
 				<ul>
-					<Link to='/'>Home</Link>
-					<Link to="/aboutMe">About Me</Link>
+					<Link to="/">Home</Link>
+					<Link to="/about-me">About Me</Link>
 					<Link to="/beats">Beats</Link>
-					<Link to="/contactUs">Contact</Link>
-					<Link to="/">Cart Review</Link>
+					<Link to="/contact">Contact</Link>
+					<Link to="/cart-review">Cart Review</Link>
 				</ul>
 			</nav>
-			<div>
-				<Link to={'/checkout'}><FaShoppingCart/></Link>
-				<p>{count}</p>
+			<div className={styles.cartHolder}>
+				<Link to="/checkout"><FaShoppingCart className={styles.cartIcon}/></Link>
+				<p>12</p>
 			</div>
 		</header>
 	)
 }
 
-export default NavBar;
+export default Navbar

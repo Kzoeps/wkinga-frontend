@@ -2,6 +2,7 @@ import {useState} from "react";
 import styles from './contact.module.css';
 import Footer from "../../components/footer/footer";
 import Button from "../../components/button/button";
+import NavigationBar from "../../components/navigation-bar/navigationBar";
 
 export default function Contact() {
 	const [firstName, setFirstname] = useState("");
@@ -24,7 +25,7 @@ export default function Contact() {
 
 	return (
 		<div className={styles.contactUsContainer}>
-			{/*<NavigationBar/>*/}
+			<NavigationBar/>
 			<div className={styles.contactUsTitleHolder}>
 				<p>Got a Questions</p>
 				<h3>Contact WBK</h3>

@@ -1,7 +1,6 @@
-// import NavigationBar from "../../components/navigation-bar/navigationBar";
+import NavigationBar from "../../components/navigation-bar/navigationBar";
 import utilStyles from '../../assets/global-styles/utils.module.css';
 import styles from './beats.module.css';
-// import aboutMeStyles from '../about-me/about-me.module.css';
 import Button from "../../components/button/button";
 import BeatsPlayer from "../../components/beat-player/beat-player";
 import CartSummary from "../../components/cart-summary/cart-summary";
@@ -12,7 +11,7 @@ import {Link} from "react-router-dom";
 export default function Beats(props) {
 	return (
 		<div className={`${utilStyles.backgroundColor} ${styles.metaContainer}`}>
-			{/*<NavigationBar/>*/}
+			<NavigationBar/>
 			<Header title={'Beats'}/>
 			<div className={`${styles.beatsDescriptionComp} ${utilStyles.text}`}>
 				<div className={`${styles.descriptionItem}`}>

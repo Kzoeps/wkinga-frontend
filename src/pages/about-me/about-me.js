@@ -1,14 +1,14 @@
 import Footer from "../../components/footer/footer";
 import utilStyles from '../../assets/global-styles/utils.module.css'
 import styles from './about-me.module.css';
-// import NavigationBar from "../../components/navigation-bar/navigationBar";
+import NavigationBar from "../../components/navigation-bar/navigationBar";
 import Header from "../../components/header/header";
 import CollaborationsHolder from "../../components/collaborations-holder/collaborations-holder";
 
 export default function AboutMe() {
 	return (
 		<div className={`${utilStyles.backgroundColor} ${styles.aboutMeContainer}`}>
-			{/*<NavigationBar/>*/}
+			<NavigationBar/>
 			<Header title={'About Me'}/>
 			<div className={`${utilStyles.text} ${styles.text} ${styles.descriptionWK}`}>
 				<p>
