@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import NavigationBar from "../../components/navigation-bar/navigationBar";
-=======
->>>>>>> af1047125fea317e68d07721574ba6a635881388
 import utilStyles from '../../assets/global-styles/utils.module.css';
 import styles from './beats.module.css';
 import Button from "../../components/button/button";
@@ -14,10 +11,7 @@ import {Link} from "react-router-dom";
 export default function Beats(props) {
 	return (
 		<div className={`${utilStyles.backgroundColor} ${styles.metaContainer}`}>
-<<<<<<< HEAD
 			<NavigationBar/>
-=======
->>>>>>> af1047125fea317e68d07721574ba6a635881388
 			<Header title={'Beats'}/>
 			<div className={`${styles.beatsDescriptionComp} ${utilStyles.text}`}>
 				<div className={`${styles.descriptionItem}`}>
