@@ -18,7 +18,7 @@
 	justify-content: center;
 	align-items: center;
 	margin-top: 92px;
-	background-image: url("../../assets/images/backgroundImg.svg");
+	/* background-image: url("../../assets/images/backgroundImg.svg"); */
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -41,7 +41,7 @@
 	bottom: 0;
 	padding: 20px 0;
 	position: absolute;
-	background: url("../../assets/images/wrapper.svg");
+	/* background: url("../../assets/images/wrapper.svg"); */
 }
 .homeHeadingContainer > p {
 	color: white;
@@ -211,7 +211,7 @@
 		flex-direction: column;
 	}
 	.mainPage {
-		background-image: url("../../assets/images/backgroundImg.svg");
+		/* background-image: url("../../assets/images/backgroundImg.svg"); */
 		background-position: center;
 	}
 }
