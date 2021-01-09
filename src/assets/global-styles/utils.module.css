@@ -11,6 +11,7 @@
 	font-size: 1.75rem !important;
 	font-weight: 600;
 	margin-bottom: 14px !important;
+	padding-top: 80px;
 }
 
 .ralewayFont {
@@ -43,9 +44,9 @@ hr {
 	font-family: 'Montserrat', sans-serif;
 	color: #e6e6e6;
 }
-.headers{
-	margin-top: 80px;
-}
+/*.headers{*/
+/*	margin-top: 80px;*/
+/*}*/
 .albumImage {
 	width: 117px;
 	height: auto;
