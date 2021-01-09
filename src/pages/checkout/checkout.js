@@ -2,66 +2,11 @@ import styles from './checkout.module.css';
 import NavigationBar from "../../components/navigation-bar/navigationBar";
 import Footer from "../../components/footer/footer";
 import {Button} from "@material-ui/core";
-import {useState} from "react";
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import {useTheme} from '@material-ui/core/styles';
 import Receipt from "../../components/receipt/receipt";
 
-export default function Checkout() {
-	const [firstName, setFirstname] = useState("");
-	const [lastName, setLastName] = useState("");
-	const [email, setEmail] = useState("");
-	const [journalNumber, setJournalNumber] = useState("");
-	const [flag, setFlag] = useState(true);
-	const theme = useTheme();
-	const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
-	const [open, setOpen] = useState(false);
-	const [check, setCheck] = useState(false)
-	const handleClickOpen = () => {
-		setOpen(true);
-	};
-	const handleCheck = e => {
-		if (check) {
-			setCheck(false)
-		} else {
-			setCheck(true);
-		}
-
-	}
-
-	const handleClose = () => {
-		setOpen(false);
-	};
-	const firstNameHandle = e => {
-		setFirstname(e.target.value);
-	}
-	const lastNameHandle = e => {
-		setLastName(e.target.value);
-	}
-	const emailHandle = e => {
-		setEmail(e.target.value);
-	}
-	const handleBtn = () => {
-		if (flag) {
-			setFlag(false);
-		}
-	}
-	const handleBtn1 = () => {
-		if (!flag) {
-			setFlag(true);
-		}
-	}
-	const journalHandle = e => {
-		setJournalNumber(e.target.value)
-	}
-	const handleClick = e => {
-		e.preventDefault();
-		window.open(
-			`mailto:jigmetashi02@gmail.com?subject=MakingOrder&body=Name: ${firstName} ${lastName}`
-		);
-	}
+export default function Checkout(props) {
 	return (
 		<div className={styles.checkoutContainer}>
 			<NavigationBar/>
@@ -69,11 +14,11 @@ export default function Checkout() {
 				<p>Check Out</p>
 				<div className={styles.btnTypeholder}>
 					<Button
-						className={`${styles.domesticBtn} ${flag && styles.active}`}
-						onClick={handleBtn1}>Domestic</Button>
+						className={`${styles.domesticBtn} ${props.flag && styles.active}`}
+						onClick={props.handleFlag}>Domestic</Button>
 					<Button
-						className={`${styles.internationalBtn} ${!flag && styles.active}`}
-						onClick={handleBtn}>International</Button>
+						className={`${styles.internationalBtn} ${!props.flag && styles.active}`}
+						onClick={props.handleFlag}>International</Button>
 				</div>
 			</div>
 
@@ -81,8 +26,8 @@ export default function Checkout() {
 				<div className={styles.formStyle}>
 					<label htmlFor="exampleInputEmail1">First Name</label>
 					<input
-						onChange={firstNameHandle}
-						value={firstName}
+						onChange={props.firstNameHandle}
+						value={props.firstName}
 						type="text"
 						className="form-control"
 						id="exampleInputEmail1"
@@ -93,8 +38,8 @@ export default function Checkout() {
 				<div className={styles.formStyle}>
 					<label htmlFor="exampleInputEmail1">Last Name</label>
 					<input
-						onChange={lastNameHandle}
-						value={lastName}
+						onChange={props.lastNameHandle}
+						value={props.lastName}
 						type="text"
 						className="form-control"
 						id="exampleInputEmail1"
@@ -105,8 +50,8 @@ export default function Checkout() {
 				<div className={styles.formStyle}>
 					<label htmlFor="exampleInputEmail1">Email</label>
 					<input
-						onChange={emailHandle}
-						value={email}
+						onChange={props.emailHandle}
+						value={props.email}
 						type="email"
 						className="form-control"
 						id="exampleInputEmail1"
@@ -116,20 +61,20 @@ export default function Checkout() {
 
 				<Receipt/>
 
-				<Button className={styles.checkoutButton} onClick={handleClickOpen}>Proceed</Button>
+				<Button className={styles.checkoutButton} onClick={props.handleOpen}>Proceed</Button>
 				{
-					flag
+					props.flag
 						? (
 							<Dialog
-								fullScreen={fullScreen}
-								open={open}
-								onClose={handleClose}
+								fullScreen={props.fullScreen}
+								open={props.open}
+								onClose={props.handleOpen}
 								aria-labelledby="responsive-dialog-title">
 								<DialogContent className={styles.popupContainer}>
 									<div className={styles.popUp}>
 										<div className={styles.popUpTitle}>
 											<h6>
-												<strong>Please make a payment through MBOB</strong>
+												<strong>Please make a payment of {props.cartTotal}$ through MBOB</strong>
 											</h6>
 											<p>BOB account number:
 												<strong>
@@ -140,8 +85,8 @@ export default function Checkout() {
 											<div className={styles.formStyle}>
 												<label htmlFor="exampleInputEmail1">Journal Number</label>
 												<input
-													onChange={journalHandle}
-													value={journalNumber}
+													onChange={props.journalHandle}
+													value={props.journalNumber}
 													type="number"
 													className="form-control"
 													id="exampleInputEmail1"
@@ -152,7 +97,7 @@ export default function Checkout() {
 													type="checkbox"
 													className="form-check-input"
 													id="exampleCheck1"
-													onChange={handleCheck}/>
+													onChange={props.handleCheck}/>
 												<label className="form-check-label" htmlFor="exampleCheck1">I agree to the
 													<a href={'https://dummy.com'}>terms and condition.</a>
 												</label>
@@ -160,11 +105,11 @@ export default function Checkout() {
 											<div className={styles.popUpBtnContainer}>
 												<Button
 													autoFocus="autoFocus"
-													onClick={handleClose}
+													onClick={props.handleOpen}
 													className={styles.popUpBtn1}>
 													cancel
 												</Button>
-												<Button onClick={handleClick} className={styles.popUpBtn}>
+												<Button onClick={props.handleSubmit} className={styles.popUpBtn}>
 													Order Now
 												</Button>
 											</div>
@@ -176,15 +121,15 @@ export default function Checkout() {
 						)
 						: (
 							<Dialog
-								fullScreen={fullScreen}
-								open={open}
-								onClose={handleClose}
+								fullScreen={props.fullScreen}
+								open={props.open}
+								onClose={props.handleOpen}
 								aria-labelledby="responsive-dialog-title">
 								<DialogContent className={styles.popupContainer}>
 									<div className={styles.popUp}>
 										<div className={styles.popUpTitle}>
 											<h6>
-												<strong>Please make a payment through Paypal</strong>
+												<strong>Please make a payment of {props.cartTotal}$ through Paypal</strong>
 											</h6>
 											<p>Paypal email address:<strong> jigmetashi02@gmail.com</strong>
 											</p>
@@ -193,8 +138,8 @@ export default function Checkout() {
 											<div className={styles.formStyle}>
 												<label htmlFor="exampleInputEmail1">Reciept Number</label>
 												<input
-													onChange={journalHandle}
-													value={journalNumber}
+													onChange={props.journalHandle}
+													value={props.journalNumber}
 													type="number"
 													className="form-control"
 													id="exampleInputEmail1"
@@ -205,7 +150,7 @@ export default function Checkout() {
 													type="checkbox"
 													className="form-check-input"
 													id="exampleCheck1"
-													onChange={handleCheck}/>
+													onChange={props.handleCheck}/>
 												<label className="form-check-label" htmlFor="exampleCheck1">I agree to the
 													<a href={'https://chcekout.com'}> terms and condition.</a>
 												</label>
@@ -213,11 +158,11 @@ export default function Checkout() {
 											<div className={styles.popUpBtnContainer}>
 												<Button
 													autoFocus="autoFocus"
-													onClick={handleClose}
+													onClick={props.handleOpen}
 													className={styles.popUpBtn1}>
 													cancel
 												</Button>
-												<Button onClick={handleClick} className={styles.popUpBtn}>
+												<Button onClick={props.handleSubmit} className={styles.popUpBtn}>
 													Order Now
 												</Button>
 											</div>

@@ -2,8 +2,11 @@ import styles from './navbar.module.css';
 import HamBurger from './tools/ham';
 import {FaShoppingCart} from "react-icons/fa"
 import {Link} from 'react-router-dom';
+import {useSelector} from "react-redux";
+import {selectCart} from "../../reducers/cart-reducer";
 
 const Navbar = ({hamHandler}) => {
+	const beatsInCart = useSelector(selectCart);
 	return (
 		<header className={styles.navBar}>
 			<div className={styles.hamHolder}>
@@ -24,7 +27,7 @@ const Navbar = ({hamHandler}) => {
 			</nav>
 			<div className={styles.cartHolder}>
 				<Link to="/checkout"><FaShoppingCart className={styles.cartIcon}/></Link>
-				<p>12</p>
+				<p>{beatsInCart.length}</p>
 			</div>
 		</header>
 	)

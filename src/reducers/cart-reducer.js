@@ -77,4 +77,5 @@ export const getLicensePrice = beat => {
 	}
 	return beat[licenseTypes[beat.chosenLicenseType]];
 }
+export const getTotal = beatsInCart => beatsInCart.reduce((sumPrice, currentBeat) => ({totalPrice: sumPrice.totalPrice + getLicensePrice(currentBeat)}), {totalPrice: 0})
 export default cartSlice.reducer;

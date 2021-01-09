@@ -2,11 +2,11 @@ import './App.css';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import AboutMe from "./pages/about-me/about-me";
 import Contact from './pages/contact/contact'
-import Checkout from "./pages/checkout/checkout";
 import BeatsContainer from "./pages/beats/beats-container";
 import HomeContainer from "./pages/home/home-container";
 import CartReviewContainer from "./pages/cart-review/cart-review-container";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CheckoutContainer from "./pages/checkout/checkout-container";
 
 function App() {
 	return (
@@ -18,7 +18,7 @@ function App() {
 				<Route exact path={'/cart-review'} component={CartReviewContainer}/>
 				<Route exact path={'/about-me'} component={AboutMe}/>
 				<Route exact path={'/contact'} component={Contact}/>
-				<Route exact path={'/checkout'} component={Checkout}/>
+				<Route exact path={'/checkout'} component={CheckoutContainer}/>
 			</Switch>
 		</BrowserRouter>
 	);

@@ -1,15 +1,14 @@
 import styles from './receipt.module.css';
 import {Card} from '@material-ui/core';
 import {useSelector} from "react-redux";
-import {getLicensePrice, selectCart} from "../../reducers/cart-reducer";
+import {getLicensePrice, getTotal, selectCart} from "../../reducers/cart-reducer";
 
 export default function Receipt() {
 	const beatsInCart = useSelector(selectCart);
-	const cartTotal = beatsInCart.reduce((sumPrice, currentBeat) => {
-		return {totalPrice: sumPrice.totalPrice + getLicensePrice(currentBeat)}
-	}, {totalPrice: 0});
+	const cartTotal = getTotal(beatsInCart);
+
 	const items = beatsInCart.map((eachBeat) => (
-		<div className={styles.item}>
+		<div key={eachBeat.beatId} className={styles.item}>
 			<div className={styles.itemContent}>
 				<h6>{eachBeat.beatName}</h6>
 				<p>{eachBeat.chosenLicenseType}</p>
