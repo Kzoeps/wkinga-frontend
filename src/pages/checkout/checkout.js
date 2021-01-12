@@ -2,7 +2,7 @@ import styles from './checkout.module.css';
 import utilStyles from '../../assets/global-styles/utils.module.css'
 import NavigationBar from "../../components/navigation-bar/navigationBar";
 import Footer from "../../components/footer/footer";
-import {FormControl, Button, InputLabel, OutlinedInput} from "@material-ui/core";
+import {Button} from "@material-ui/core";
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import Receipt from "../../components/receipt/receipt";
@@ -24,20 +24,6 @@ export default function Checkout(props) {
 			</div>
 
 			<form className={styles.formContainer}>
-
-				{/*<FormControl variant={'outlined'} className={`form-control ${styles.bottomDistance}`}>*/}
-				{/*	<InputLabel htmlFor='firstName'>First Name</InputLabel>*/}
-				{/*	<OutlinedInput*/}
-				{/*		id='firstName'*/}
-				{/*		onChange={props.firstNameHandle}*/}
-				{/*		value={props.firstName}*/}
-				{/*		type="text"*/}
-				{/*		label={'First Name'}*/}
-				{/*		placeholder={'Ex: Dorji'}*/}
-				{/*		required={true}*/}
-				{/*	/>*/}
-				{/*	<p className={`${utilStyles.errorMessage}`}>{props.dirtyForms.firstName ? (props.firstName ? '' : 'Required Field!') : ''}</p>*/}
-				{/*</FormControl>*/}
 				<div className={styles.formStyle}>
 					<label htmlFor="firstName">First Name</label>
 					<input
@@ -49,7 +35,7 @@ export default function Checkout(props) {
 						placeholder={'Ex: Dorji'}
 						required={true}
 						aria-describedby="emailHelp"/>
-					<p className={`${utilStyles.errorMessage}`}>{props.dirtyForms.firstName ? (props.firstName ? '' : 'Required Field'): ''}</p>
+					<p className={`${utilStyles.errorMessage}`}>{props.dirtyForms.firstName ? (props.firstName ? '' : 'Required Field') : ''}</p>
 				</div>
 
 				<div className={styles.formStyle}>
@@ -62,7 +48,7 @@ export default function Checkout(props) {
 						id="exampleInputEmail1"
 						placeholder={'Ex: Gyatshey'}
 						aria-describedby="emailHelp"/>
-					<p className={`${utilStyles.errorMessage}`}>{props.dirtyForms.lastName ? (props.lastName ? '' : 'Required Field'): ''}</p>
+					<p className={`${utilStyles.errorMessage}`}>{props.dirtyForms.lastName ? (props.lastName ? '' : 'Required Field') : ''}</p>
 				</div>
 
 				<div className={styles.formStyle}>
@@ -75,8 +61,8 @@ export default function Checkout(props) {
 						className="form-control"
 						id="exampleInputEmail1"
 						aria-describedby="emailHelp"/>
-						<p className={`${utilStyles.errorMessage}`}>{props.email ? props.emailError : ''}</p>
-						<p className={`${utilStyles.errorMessage}`}>{props.dirtyForms.email ? (props.email ? '' : 'Required Field'): ''}</p>
+					<p className={`${utilStyles.errorMessage}`}>{props.email ? props.emailError : ''}</p>
+					<p className={`${utilStyles.errorMessage}`}>{props.dirtyForms.email ? (props.email ? '' : 'Required Field') : ''}</p>
 				</div>
 
 				<Receipt/>
@@ -111,6 +97,7 @@ export default function Checkout(props) {
 													className="form-control"
 													id="exampleInputEmail1"
 													aria-describedby="emailHelp"/>
+												<p className={`${utilStyles.errorMessage}`}>{props.dirtyForms.journalNumber ? (props.journalNumber ? '' : 'Required Field') : ''}</p>
 											</div>
 											<div className={styles.formStyle2}>
 												<input
@@ -122,6 +109,7 @@ export default function Checkout(props) {
 													<a href={'https://dummy.com'}>terms and condition.</a>
 												</label>
 											</div>
+											<p className={`${utilStyles.errorMessage}`} style={{marginLeft: "10px"}}>{props.dirtyForms.check ? (props.check ? '' : 'Required to agree') : ''}</p>
 											<div className={styles.popUpBtnContainer}>
 												<Button
 													autoFocus="autoFocus"
@@ -164,6 +152,7 @@ export default function Checkout(props) {
 													className="form-control"
 													id="exampleInputEmail1"
 													aria-describedby="emailHelp"/>
+												<p className={`${utilStyles.errorMessage}`}>{props.dirtyForms.journalNumber ? (props.journalNumber ? '' : 'Required Field') : ''}</p>
 											</div>
 											<div className={styles.formStyle2}>
 												<input
@@ -175,6 +164,7 @@ export default function Checkout(props) {
 													<a href={'https://chcekout.com'}> terms and condition.</a>
 												</label>
 											</div>
+											<p className={`${utilStyles.errorMessage}`} style={{marginLeft: "10px"}}>{props.dirtyForms.check ? (props.check ? '' : 'Required to agree') : ''}</p>
 											<div className={styles.popUpBtnContainer}>
 												<Button
 													autoFocus="autoFocus"

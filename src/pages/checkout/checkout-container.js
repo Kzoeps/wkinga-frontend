@@ -18,7 +18,7 @@ export default function CheckoutContainer() {
 	const [open, setOpen] = useState(false);
 	const [check, setCheck] = useState(false);
 	const [emailError, setEmailError] = useState('');
-	const [dirtyForms, setDirtyForm] = useState({ firstName: false, lastName: false, email: false});
+	const [dirtyForms, setDirtyForm] = useState({ firstName: false, lastName: false, email: false, journalNumber: false, check: false});
 
 	const firstNameHandle = e => {
 		setFirstName(e.target.value);
@@ -44,6 +44,10 @@ export default function CheckoutContainer() {
 	}
 	const journalHandle = e => {
 		setJournalNumber(e.target.value)
+		setDirtyForm({
+			...dirtyForms,
+			journalNumber: true,
+		})
 	}
 	const handleFlag = () => {
 		setFlag(!flag);
@@ -53,19 +57,31 @@ export default function CheckoutContainer() {
 			setOpen(!open);
 		}
 		setDirtyForm({
+			...journalNumber,
 			firstName: true,
 			lastName: true,
 			email: true
 		})
 	}
 	const handleCheck = () => {
-		setCheck(!check)
+		setCheck(!check);
+		setDirtyForm({
+			...dirtyForms,
+			check: true
+		})
 	}
 	const handleSubmit = e => {
 		e.preventDefault();
-		window.open(
-			`mailto:jigmetashi02@gmail.com?subject=MakingOrder&body=Name: ${firstName} ${lastName}`
-		)
+		if (journalNumber && check) {
+			window.open(
+				`mailto:jigmetashi02@gmail.com?subject=MakingOrder&body=Name: ${firstName} ${lastName}`
+			)
+		}
+		setDirtyForm({
+			...dirtyForms,
+			journalNumber: true,
+			check: true
+		})
 	}
 	const validateEmail = (email) => {
 		const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
