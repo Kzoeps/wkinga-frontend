@@ -55,3 +55,12 @@ hr {
 	height: auto;
 	box-shadow: 9px 7px 2px #c4c4c494, -15px -12px 20px #2b455f4a;
 }
+
+@media (min-width: 800px) {
+	.hr {
+		width: 100%;
+	}
+	.middleMe {
+		margin: 0 auto;
+	}
+}
