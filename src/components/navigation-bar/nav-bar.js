@@ -4,6 +4,7 @@ import {FaShoppingCart} from "react-icons/fa"
 import {Link} from 'react-router-dom';
 import {useSelector} from "react-redux";
 import {selectCart} from "../../reducers/cart-reducer";
+import logo from '../../assets/images/logo.svg';
 
 const Navbar = ({hamHandler}) => {
 	const beatsInCart = useSelector(selectCart);
@@ -13,7 +14,7 @@ const Navbar = ({hamHandler}) => {
 				<HamBurger click={hamHandler}/>
 			</div>
 			<div className={styles.img_container}>
-				<img className={styles.header__logo} src='images/logo.svg' alt="Hello"/>
+				<Link to={'/'}><img className={styles.header__logo} src={logo} alt="logo" /></Link>
 			</div>
 
 			<nav className={styles.header__navigation}>

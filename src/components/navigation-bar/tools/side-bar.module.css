@@ -16,7 +16,6 @@
 }
 .sidebar.open{
 	transform: translateX(0);
-
 }
 .sidebarHeader{
 	display: flex;
@@ -27,11 +26,12 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 15px;
+	padding: 10px;
 }
 .logo{
-	margin: 0;
-	color: white;
+	width: 80px;
+	margin-top: 15px;
+	margin-left: -15px;
 }
 .cross{
 	color: #a0927b;
@@ -42,8 +42,9 @@
 	display: flex;
 	height: 200px;
 	width: 150px;
+	padding-left: 20px;
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-start;
 	flex-direction: column;
 }
 
