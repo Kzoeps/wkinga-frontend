@@ -33,12 +33,13 @@ export default function Footer() {
 					<h4>Quick Links</h4>
 					<Link to="/">Home</Link>
 					<Link to="/beats">Beats</Link>
-
+					<Link to={'/checkout'}>Checkout</Link>
+					<Link to={'/cart-review'}>Cart-Review</Link>
 				</div>
 				<div className={styles.footerFour}>
 					<h4>About Us</h4>
-					<Link to="/aboutUs">About Us</Link>
-					<Link to="/contactUs">Contact Us</Link>
+					<Link to="/about-me">About Me</Link>
+					<Link to="/contact">Contact</Link>
 
 				</div>
 				<div className={styles.footerThree}>

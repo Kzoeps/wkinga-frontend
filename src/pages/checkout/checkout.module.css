@@ -3,8 +3,11 @@
 	background-color: #19252a;
 
 }
+.bottomDistance {
+	margin-bottom: 22px !important;
+}
 .checkOutTitleHolder{
-	margin-top: 100px;
+	padding-top: 100px;
 	color: #a0927b;
 	display: flex;
 	flex-direction: column;
@@ -39,6 +42,9 @@
 	border: none !important;
 	margin-top: 20px !important;
 	border-radius: 0 !important;
+}
+.formControl{
+	width: 100%;
 }
 .btnTypeholder{
 	width: 100%;

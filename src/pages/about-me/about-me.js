@@ -1,4 +1,3 @@
-import {Container} from "react-bootstrap";
 import Footer from "../../components/footer/footer";
 import utilStyles from '../../assets/global-styles/utils.module.css'
 import styles from './about-me.module.css';
@@ -8,8 +7,8 @@ import CollaborationsHolder from "../../components/collaborations-holder/collabo
 
 export default function AboutMe() {
 	return (
-		<Container fluid={true} className={`${utilStyles.backgroundColor} ${styles.aboutMeContainer}`}>
-			{/*<NavigationBar/>*/}
+		<div className={`${utilStyles.backgroundColor} ${styles.aboutMeContainer}`}>
+			<NavigationBar/>
 			<Header title={'About Me'}/>
 			<div className={`${utilStyles.text} ${styles.text} ${styles.descriptionWK}`}>
 				<p>
@@ -33,6 +32,6 @@ export default function AboutMe() {
 									  description={'Wangchuk K X DORJidorol'}/>
 			</div>
 			<Footer/>
-		</Container>
+		</div>
 	)
 }

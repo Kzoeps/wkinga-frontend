@@ -1,17 +1,17 @@
 import utilStyles from '../../assets/global-styles/utils.module.css';
-import {Container} from "react-bootstrap";
 import Header from "../../components/header/header";
-import CartReviewItem from "../../components/cart-review-item/cart-review-item";
 import CartSummary from "../../components/cart-summary/cart-summary";
+import Footer from "../../components/footer/footer";
+import NavigationBar from "../../components/navigation-bar/navigationBar";
 
-export default function CartReview() {
+export default function CartReview(props) {
 	return (
-		<Container className={`${utilStyles.backgroundColor}`}>
+		<div className={`${utilStyles.backgroundColor}`}>
+			<NavigationBar/>
 			<Header title={'Cart Review'}/>
-				<CartReviewItem/>
-				<CartReviewItem/>
-				<CartReviewItem/>
+			{props.cartItems}
 			<CartSummary/>
-		</Container>
+			<Footer/>
+		</div>
 	)
 }

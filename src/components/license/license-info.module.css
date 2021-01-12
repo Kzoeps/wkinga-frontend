@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@500&display=swap');
+.licenseInfoContainer{
+	background-color: #19252a;
+	margin-top: 20px;
+	box-shadow: 8px 7px 14px 0 #233035;
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	margin-left: 15px;
+}
+.licenseNamePrice {
+	display: flex;
+	justify-content: space-between;
+}
+.chooseFileType {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+h4 {
+	font-size: 1.1rem !important;
+}
+.lastLicenseInfoContainer{
+	background-color: #19252a;
+	margin-top: 20px;
+	box-shadow: 8px 7px 14px 0 #233035;
+	margin-bottom: 30px;
+	width: 90%;
+	margin-left: 15px;
+}
+.licenseName {
+	color: #A0927B;
+}
+.licenseName h4{
+	font-family: 'Open Sans', sans-serif;
+	margin: 17px 5px 17px 10px;
+	letter-spacing: 0.01rem;
+}
+.licensePrice{
+	font-family: 'Open Sans',sans-serif;
+	color: #A0927B !important;
+	margin: 17px 10px 17px 10px;
+}
+.licensePriceContainer{
+	text-align: right;
+}
+.fileFormats {
+	font-family: 'Raleway', sans-serif;
+	color: #e6e6e6;
+}
+.fileFormats p{
+	font-size: 0.8rem;
+	margin: 0 5px 15px 10px;
+}
+.selectLicense{
+	color: #8e98b3;
+	text-align: right;
+}
+.selectLicenseIcon{
+	font-size: 25px;
+	margin-right: 20px;
+}

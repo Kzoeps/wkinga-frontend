@@ -9,6 +9,19 @@
 	  "trackoutLeasePrice": 30,
 	  "premiumLeasePrice": 60,
 	  "exclusivePrice": 90,
+	  "beatDuration": "2:40",
+	  "sold": false
+	},
+	{
+	  "id": 231,
+	  "beatName": "Skkr RApAPa",
+	  "beatProducer": "wkinga x chimi",
+	  "audioURL": "./sadasd/asdsad",
+	  "albumImage": "https://images.genius.com/8ababae027808d8f2de49bfcfc51488d.592x592x1.png",
+	  "trackoutLeasePrice": 20,
+	  "premiumLeasePrice": 50,
+	  "exclusivePrice": 80,
+	  "beatDuration": "3:33",
 	  "sold": false
 	}
   ]
