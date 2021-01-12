@@ -17,15 +17,30 @@ export default function CheckoutContainer() {
 	const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
 	const [open, setOpen] = useState(false);
 	const [check, setCheck] = useState(false);
+	const [emailError, setEmailError] = useState('');
+	const [dirtyForms, setDirtyForm] = useState({ firstName: false, lastName: false, email: false});
 
 	const firstNameHandle = e => {
-		setFirstName(e.target.value)
+		setFirstName(e.target.value);
+		setDirtyForm({
+			...dirtyForms,
+			firstName: true
+		})
 	}
 	const lastNameHandle = e => {
-		setLastName(e.target.value)
+		setLastName(e.target.value);
+		dirtyForms.lastName = true
 	}
 	const emailHandle = e => {
-		setEmail(e.target.value)
+		setEmail(e.target.value);
+		if (email) {
+			if (validateEmail(email)) {
+				setEmailError('');
+			} else {
+				setEmailError('Email Invalid');
+			}
+		}
+		dirtyForms.email = true
 	}
 	const journalHandle = e => {
 		setJournalNumber(e.target.value)
@@ -34,7 +49,14 @@ export default function CheckoutContainer() {
 		setFlag(!flag);
 	}
 	const handleOpen = () => {
-		setOpen(!open);
+		if (firstName && lastName && email && validateEmail(email)) {
+			setOpen(!open);
+		}
+		setDirtyForm({
+			firstName: true,
+			lastName: true,
+			email: true
+		})
 	}
 	const handleCheck = () => {
 		setCheck(!check)
@@ -44,6 +66,13 @@ export default function CheckoutContainer() {
 		window.open(
 			`mailto:jigmetashi02@gmail.com?subject=MakingOrder&body=Name: ${firstName} ${lastName}`
 		)
+	}
+	const validateEmail = (email) => {
+		const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		if (email) {
+			return (emailRegex.test(email));
+		}
+		return false;
 	}
 
 	return (
@@ -65,6 +94,8 @@ export default function CheckoutContainer() {
 			check={check}
 			handleCheck={handleCheck}
 			handleSubmit={handleSubmit}
+			emailError={emailError}
+			dirtyForms={dirtyForms}
 		/>
 	)
 }

@@ -17,6 +17,9 @@
 .ralewayFont {
 	font-family: 'Raleway',sans-serif;
 }
+.errorMessage {
+	color: #e02525;
+}
 .montserratFont{
 	font-family: 'Montserrat', sans-serif;
 }

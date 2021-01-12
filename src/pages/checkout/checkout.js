@@ -1,7 +1,8 @@
 import styles from './checkout.module.css';
+import utilStyles from '../../assets/global-styles/utils.module.css'
 import NavigationBar from "../../components/navigation-bar/navigationBar";
 import Footer from "../../components/footer/footer";
-import {Button} from "@material-ui/core";
+import {FormControl, Button, InputLabel, OutlinedInput} from "@material-ui/core";
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import Receipt from "../../components/receipt/receipt";
@@ -23,16 +24,32 @@ export default function Checkout(props) {
 			</div>
 
 			<form className={styles.formContainer}>
+
+				{/*<FormControl variant={'outlined'} className={`form-control ${styles.bottomDistance}`}>*/}
+				{/*	<InputLabel htmlFor='firstName'>First Name</InputLabel>*/}
+				{/*	<OutlinedInput*/}
+				{/*		id='firstName'*/}
+				{/*		onChange={props.firstNameHandle}*/}
+				{/*		value={props.firstName}*/}
+				{/*		type="text"*/}
+				{/*		label={'First Name'}*/}
+				{/*		placeholder={'Ex: Dorji'}*/}
+				{/*		required={true}*/}
+				{/*	/>*/}
+				{/*	<p className={`${utilStyles.errorMessage}`}>{props.dirtyForms.firstName ? (props.firstName ? '' : 'Required Field!') : ''}</p>*/}
+				{/*</FormControl>*/}
 				<div className={styles.formStyle}>
-					<label htmlFor="exampleInputEmail1">First Name</label>
+					<label htmlFor="firstName">First Name</label>
 					<input
 						onChange={props.firstNameHandle}
 						value={props.firstName}
 						type="text"
 						className="form-control"
-						id="exampleInputEmail1"
+						id="firstName"
+						placeholder={'Ex: Dorji'}
+						required={true}
 						aria-describedby="emailHelp"/>
-
+					<p className={`${utilStyles.errorMessage}`}>{props.dirtyForms.firstName ? (props.firstName ? '' : 'Required Field'): ''}</p>
 				</div>
 
 				<div className={styles.formStyle}>
@@ -43,8 +60,9 @@ export default function Checkout(props) {
 						type="text"
 						className="form-control"
 						id="exampleInputEmail1"
+						placeholder={'Ex: Gyatshey'}
 						aria-describedby="emailHelp"/>
-
+					<p className={`${utilStyles.errorMessage}`}>{props.dirtyForms.lastName ? (props.lastName ? '' : 'Required Field'): ''}</p>
 				</div>
 
 				<div className={styles.formStyle}>
@@ -53,10 +71,12 @@ export default function Checkout(props) {
 						onChange={props.emailHandle}
 						value={props.email}
 						type="email"
+						placeholder={'Ex: dorji@gyatshey.com'}
 						className="form-control"
 						id="exampleInputEmail1"
 						aria-describedby="emailHelp"/>
-
+						<p className={`${utilStyles.errorMessage}`}>{props.email ? props.emailError : ''}</p>
+						<p className={`${utilStyles.errorMessage}`}>{props.dirtyForms.email ? (props.email ? '' : 'Required Field'): ''}</p>
 				</div>
 
 				<Receipt/>
