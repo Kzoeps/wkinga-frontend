@@ -1,0 +1,29 @@
+.loginCard {
+	width: 90%;
+	height: 295px;
+	margin-top: 200px;
+	display: flex;
+	border-radius: 19px !important;
+	background-color: #fdebff;
+	flex-direction: column;
+	justify-content: center;
+	box-shadow: 22px 22px 27px rgba(0,0,0,0.3),
+	-22px -22px 27px rgba(255,255,255,0.25) !important;
+}
+.button {
+	background-color: #a0927b !important;
+}
+.flexCenter {
+	flex-wrap: wrap;
+	display: flex;
+	justify-content: flex-start;
+}
+.formField {
+	width: 100%;
+}
+.loginCardContainer {
+	display: flex;
+	justify-content: center;
+	background-color: #e09999;
+	height: 100vh;
+}
