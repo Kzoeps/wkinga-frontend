@@ -8,7 +8,7 @@ export default function CollaborationsHolder(props) {
 				<img src={props.img} className={`${styles.image}`} alt={'album'}/>
 			</div>
 			<div className={`${styles.descriptionContainer}`}>
-				<h4 className={`${utilStyles.title}`}>{props.description}</h4>
+				<h4 className={`${utilStyles.title} ${styles.descriptionTitle}`}>{props.description}</h4>
 			</div>
 		</div>
 	)
