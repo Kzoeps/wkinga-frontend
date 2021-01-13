@@ -61,12 +61,7 @@
 	}
 	.cartSummary {
 		display: flex;
-		/*text-align: center;*/
-		/*flex-direction: column;*/
-		/*width: 400px;*/
-		/*height: auto;*/
-		/*background-color: #233237;*/
-		/*margin-top: 30px;*/
+		width: 350px;
 	}
 	.title{
 		margin-top: 10px !important;
@@ -123,7 +118,7 @@
 		padding: 0!important;
 	}
 	.descriptionItem {
-		width: 500px;
+		width: 600px;
 		margin: 0 auto;
 	}
 	.beatsDescriptionContainer{
@@ -164,10 +159,33 @@
 	}
 	.textContainer{
 		background-color: rgba(160, 146, 123, 0.55);
-	}W
+	}
+	.descriptionItem {
+		font-size: 20px;
+	}
 	.checkoutButton{
 		width: 130px;
 		height: auto;
 		margin: auto;
+	}
+	.cartAndBeats {
+		width: 100%;
+		margin: 0 auto;
+	}
+	@media (max-width: 800px) {
+		.beatsPlayer {
+			width: 335px;
+		}
+		.beatPlayer {
+			width: 335px;
+		}
+		.cartSummary {
+			width: 350px;
+		}
+	}
+}
+@media (min-width: 900px) {
+	.descriptionItem {
+		width: 850px;
 	}
 }

@@ -60,7 +60,7 @@
 		display: flex;
 		text-align: center;
 		flex-direction: column;
-		width: 400px;
+		width: 350px;
 		height: auto;
 		background-color: #233237;
 		margin-top: 30px;
@@ -72,7 +72,7 @@
 
 	.cartSummaryItemPrice {
 		display: flex;
-		width: 380px;
+		width: 315px;
 		margin-left: 10px;
 		justify-content: space-between;
 	}
@@ -94,9 +94,9 @@
 	.eachItem {
 		display: flex;
 		margin-top: 15px;
+		width: 315px;
 		justify-content: space-between;
 	}
-
 	.items {
 		display: flex;
 		justify-content: space-around;
@@ -108,13 +108,31 @@
 	.cartSummaryhr {
 		background-color: white;
 		margin-top: 5px !important;
-		width: 380px;
+		width: 315px;
 		margin-left: 10px;
 	}
 
 	.checkoutButton {
 		width: 130px;
 		height: auto;
-		margin: auto;
+		transition: all 0.5s ease-in-out;
+		margin: 0 auto 10px auto;
+	}
+	.items {
+		width: 315px;
+	}
+	@media (max-width: 800px) {
+		.cartSummary {
+			width: 350px;
+		}
+		.cartSummaryItemPrice {
+			width: 315px;
+		}
+		.eachItem {
+			width: 315px;
+		}
+		.cartSummaryhr{
+			width: 315px;
+		}
 	}
 }

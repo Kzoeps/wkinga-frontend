@@ -23,7 +23,7 @@ export default function LicenseForm(props) {
 							<h4>{beat.beatName}</h4>
 							<p>{beat.beatProducer}</p>
 						</div>
-						<div className={`${styles.windowClose}`} onClick={() => {
+						<div className={`${styles.windowClose} ${utilStyles.pointerHover}`} onClick={() => {
 							props.setShow(false);
 						}}>
 							<FaWindowClose className={`${styles.windowCloseIcon}`}/>
