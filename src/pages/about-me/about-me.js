@@ -31,6 +31,12 @@ export default function AboutMe() {
 				<CollaborationsHolder img={'https://images.genius.com/8ababae027808d8f2de49bfcfc51488d.592x592x1.png'}
 									  description={'Wangchuk K X DORJidorol'}/>
 			</div>
+			<div className={`${styles.collaborationContainer}`}>
+				<CollaborationsHolder className={`${styles.collabContainerItem}`} img={"https://upload.wikimedia.org/wikipedia/en/5/52/HeadInTheClouds-Album.jpg"}
+									  description={'Wangchuk Kinga X GSD'}/>
+				<CollaborationsHolder img={'https://images.genius.com/8ababae027808d8f2de49bfcfc51488d.592x592x1.png'}
+									  description={'Wangchuk K X DORJidorol'}/>
+			</div>
 			<Footer/>
 		</div>
 	)

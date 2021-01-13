@@ -2,6 +2,7 @@ import styles from './home.module.css'
 import Footer from "../../components/footer/footer";
 import NavigationBar from "../../components/navigation-bar/navigationBar";
 import Playlist from "../../components/playlist/playlist";
+import Loader from "../../components/loader/loader";
 
 export default function Home(props) {
 	return (
@@ -26,7 +27,7 @@ export default function Home(props) {
 				<Playlist title="Lorem Ipsum Playlist"
 						  imageOne="https://images.genius.com/8ababae027808d8f2de49bfcfc51488d.592x592x1.png"
 						  imageTwo="https://upload.wikimedia.org/wikipedia/en/5/52/HeadInTheClouds-Album.jpg"/>
-			</div> : <div className={styles.loader}>Loading ...</div>}
+			</div> : <Loader/> }
 
 			<Footer/>
 		</div>

@@ -6,7 +6,7 @@
 }
 .aboutMeContainer{
 	background-color: #19252a;
-	height: 800px;
+	height: 100%;
 }
 .text{
 	font-size: 0.8rem;
@@ -103,5 +103,8 @@
 	}
 	.collaborationAbove7 {
 		display: flex;
+	}
+	.collaborationContainer {
+		background-color: #19252a;
 	}
 }
