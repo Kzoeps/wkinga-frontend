@@ -30,7 +30,7 @@ export default function CartReviewItem(props) {
 						<div className={`${styles.prices}`}>
 							<span>{licenseChosenPrice}$/ {licenseChosenPrice*75} BTN</span>
 						</div>
-						<div className={`${styles.closeButton}`}>
+						<div className={`${styles.closeButton} ${utilStyles.pointerHover}`}>
 							<span> <RiCloseLine onClick={removeFromCart}/> </span>
 						</div>
 					</div>
