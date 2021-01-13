@@ -2,6 +2,7 @@ import styles from "./license-info.module.css";
 import {FaCheckCircle} from "react-icons/fa";
 import {useDispatch} from "react-redux";
 import {addBeatToCart} from "../../reducers/cart-reducer";
+import utilStyles from '../../assets/global-styles/utils.module.css'
 
 export default function LicenseInfo(props) {
 	const licenseType = Object.keys(props.beatInfo)[0];
@@ -9,7 +10,7 @@ export default function LicenseInfo(props) {
 
 	const onCartAddClick = () => {
 		props.setShow(false);
-		props.setLabel('Remove From Cart');
+		props.setLabel('Remove');
 		dispatch(addBeatToCart(props.beat, licenseType))
 	}
 
@@ -33,7 +34,7 @@ export default function LicenseInfo(props) {
 						<p>Wav 3, Mp3 and others</p>
 					</div>
 					<div className={`${styles.selectLicense}`}>
-						<FaCheckCircle className={`${styles.selectLicenseIcon}`}
+						<FaCheckCircle className={`${styles.selectLicenseIcon} ${utilStyles.pointerHover}`}
 									   onClick={onCartAddClick}
 						/>
 					</div>

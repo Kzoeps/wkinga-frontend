@@ -3,6 +3,7 @@ import styles from "./beat-player.module.css";
 import Button from "../button/button";
 import LicenseForm from "../license/license-form";
 import {useDispatch, useSelector} from "react-redux";
+import utilStyles from '../../assets/global-styles/utils.module.css';
 import {removeBeat, selectCart, setCurrentBeat} from "../../reducers/cart-reducer";
 
 export default function BeatsPlayer(props) {
@@ -10,15 +11,15 @@ export default function BeatsPlayer(props) {
 	const cart = useSelector(selectCart);
 	const inCart = cart.find((eachBeat) => eachBeat.beatId === props.beat.id);
 	const [showForm, setForm] = useState(false);
-	const [btnLabel, setLabel] = useState(inCart ? 'Remove From Cart' : 'Add To Cart');
+	const [btnLabel, setLabel] = useState(inCart ? 'Remove' : 'Add');
 	const dispatch = useDispatch();
 
 	const onAddToCartClicked = () => {
-		if (btnLabel === 'Add To Cart') {
+		if (btnLabel === 'Add') {
 			setForm(true);
 			dispatch(setCurrentBeat(props.beat));
 		} else {
-			setLabel('Add To Cart');
+			setLabel('Add');
 			dispatch(removeBeat(props.beat.id));
 		}
 	}
@@ -41,7 +42,7 @@ export default function BeatsPlayer(props) {
 						<div className={styles.beatProd}>
 							{props.beat.beatProducer}
 						</div>
-						<div className={styles.cartBtn} onClick={onAddToCartClicked}>
+						<div className={`${styles.cartBtn} ${utilStyles.pointerHover} ${utilStyles.buttonHover}`} onClick={onAddToCartClicked}>
 							<Button buttonLabel={btnLabel}/>
 						</div>
 					</div>

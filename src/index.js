@@ -8,6 +8,7 @@ import store from "./store";
 import {PersistGate} from 'redux-persist/integration/react';
 import {persistStore} from 'redux-persist'
 import {fetchBeats} from "./reducers/beats-reducer";
+import Loader from "./components/loader/loader";
 
 const state = store.getState();
 if (!state.beats.beats.length) {
@@ -18,7 +19,7 @@ let persistor = persistStore(store);
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<PersistGate loading={'Loading'} persistor={persistor}>
+			<PersistGate loading={<Loader/>} persistor={persistor}>
 				<App/>
 			</PersistGate>
 		</Provider>

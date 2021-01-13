@@ -7,6 +7,7 @@ import CartSummary from "../../components/cart-summary/cart-summary";
 import Footer from "../../components/footer/footer";
 import Header from "../../components/header/header";
 import {Link} from "react-router-dom";
+import Loader from "../../components/loader/loader";
 
 export default function Beats(props) {
 	return (
@@ -41,7 +42,7 @@ export default function Beats(props) {
 								<BeatsPlayer beat={beat}/>
 							</div>
 						)
-					) : <div>Loading ...</div>}
+					) : <Loader/>}
 				</div>
 				<div className={styles.cartSummary}><CartSummary/></div>
 			</div>

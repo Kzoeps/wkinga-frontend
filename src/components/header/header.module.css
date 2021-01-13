@@ -1,3 +1,9 @@
 .headers {
 	margin-left: 30px;
 }
+@media (min-width: 800px) {
+	.headers {
+		margin: 0 auto;
+		width: 80%;
+	}
+}

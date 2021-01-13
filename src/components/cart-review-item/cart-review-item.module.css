@@ -85,5 +85,44 @@
 @media (min-width: 700px) {
 	.cartReviewItemContainer {
 		justify-content: left;
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.titleAndArtist {
+		width: 260px;
+	}
+	.beatName {
+		font-size: 1.15rem;
+	}
+	.producer {
+		font-size: 1rem;
+	}
+	.hr {
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.cartReviewItemWholeContainer {
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.closeButton {
+		font-size: 25px;
+	}
+	.priceAndLicense {
+		width: 175px;
+		justify-content: space-between;
+	}
+	.priceAndClose {
+		width: 100%;
+	}
+	.prices {
+		font-size: 1.05rem;
+		width: 100%;
+	}
+	.licenseName {
+		font-size: 1rem;
 	}
 }

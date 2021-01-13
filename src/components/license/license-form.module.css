@@ -51,8 +51,14 @@
 	background-color: rgba(25, 37, 42, 0.5);
 }
 
-@media (min-width: 700px) {
+@media (min-width: 500px) {
 	.licenseFormContainer {
-		left: 450px;
+		width: 450px;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+	}
+	.titleAndArtist {
+		width: 250px;
 	}
 }

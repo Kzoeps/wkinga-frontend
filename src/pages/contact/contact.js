@@ -1,33 +1,16 @@
-import {useState} from "react";
 import styles from './contact.module.css';
+import utilStyles from '../../assets/global-styles/utils.module.css';
 import Footer from "../../components/footer/footer";
 import Button from "../../components/button/button";
 import NavigationBar from "../../components/navigation-bar/navigationBar";
 
-export default function Contact() {
-	const [firstName, setFirstname] = useState("");
-	const [lastName, setLastName] = useState("");
-	const [email, setEmail] = useState("");
-	const [message, setMessage] = useState("");
-
-	const firstNameHandle = e => {
-		setFirstname(e.target.value);
-	}
-	const lastNameHandle = e => {
-		setLastName(e.target.value);
-	}
-	const emailHandle = e => {
-		setEmail(e.target.value);
-	}
-	const messageHandle = e => {
-		setMessage(e.target.value);
-	}
+export default function Contact(props) {
 
 	return (
 		<div className={styles.contactUsContainer}>
 			<NavigationBar/>
 			<div className={styles.contactUsTitleHolder}>
-				<p>Got a Questions</p>
+				<p>Got Questions ?</p>
 				<h3>Contact WBK</h3>
 				<p className={styles.titleContent}>We’re here to help and answer any question
 					you might have. We look forward to hearing from you 🙂</p>
@@ -35,54 +18,56 @@ export default function Contact() {
 
 			<form className={styles.formContainer}>
 				<div className={styles.formStyle}>
-					<label for="exampleInputEmail1">First Name</label>
+					<label htmlFor="exampleInputEmail1">First Name</label>
 					<input
-						onChange={firstNameHandle}
-						value={firstName}
+						onChange={props.firstNameHandle}
+						value={props.firstName}
 						type="text"
-						class="form-control"
+						className="form-control"
+						id="exampleInputEmail1"
+						aria-describedby="emailHelp"/>
+					<p className={`${utilStyles.errorMessage}`}>{props.dirtyForm.firstName ? (props.firstName ? '': 'Required Field'): ''}</p>
+				</div>
+
+				<div className={styles.formStyle}>
+					<label htmlFor="exampleInputEmail1">Last Name</label>
+					<input
+						onChange={props.lastNameHandle}
+						value={props.lastName}
+						type="text"
+						className="form-control"
 						id="exampleInputEmail1"
 						aria-describedby="emailHelp"/>
 
 				</div>
 
 				<div className={styles.formStyle}>
-					<label for="exampleInputEmail1">Last Name</label>
+					<label htmlFor="exampleInputEmail1">Email</label>
 					<input
-						onChange={lastNameHandle}
-						value={lastName}
-						type="text"
-						class="form-control"
-						id="exampleInputEmail1"
-						aria-describedby="emailHelp"/>
-
-				</div>
-
-				<div className={styles.formStyle}>
-					<label for="exampleInputEmail1">Email</label>
-					<input
-						onChange={emailHandle}
-						value={email}
+						onChange={props.emailHandle}
+						value={props.email}
 						type="email"
-						class="form-control"
+						className="form-control"
 						id="exampleInputEmail1"
 						aria-describedby="emailHelp"/>
-
+					<p className={`${utilStyles.errorMessage}`}>{props.email ? props.emailErr : ''}</p>
+					<p className={`${utilStyles.errorMessage}`}>{props.dirtyForm.email ? (props.email ? '' : 'Required Field'): ''}</p>
 				</div>
 
 				<div className={styles.formStyle}>
-					<label for="exampleInputEmail1">Message</label>
+					<label htmlFor="exampleInputEmail1">Message</label>
 					<textarea
-						onChange={messageHandle}
-						value={message}
+						onChange={props.messageHandle}
+						value={props.message}
 						type="text"
-						class="form-control"
+						className="form-control"
 						id="exampleInputEmail1"
 						aria-describedby="emailHelp"/>
-
+					<p className={`${utilStyles.errorMessage}`}>{props.dirtyForm.message ? (props.message ? '' : 'Required Field') : ''}</p>
 				</div>
-				<Button buttonLabel={'Send Message'} className={styles.contactUsButton}/>
+				<Button buttonLabel={'Send Message'} className={styles.contactUsButton} onClick={props.submit}/>
 			</form>
+
 			<Footer/>
 		</div>
 	)

@@ -2,16 +2,16 @@ import React from 'react'
 import styles from './side-bar.module.css';
 import {Link} from 'react-router-dom';
 import {ImCross} from 'react-icons/im'
+import logo from '../../../assets/images/wkingabeats_logo.svg';
+
 const SideBar = ({close, show}) => {
-
-
 	return (
 		<div className={`${styles.sidebar} ${show && styles.open}`}>
 			<div className={styles.sidebarHeader}>
-				<p className={styles.logo}>WKBeats</p>
+				<Link to={'/'}><img src={logo} className={styles.logo}  alt={'logo'}/></Link>
 				<ImCross className={styles.cross} onClick={close}/>
 			</div>
-			<ul>
+			<ul className={styles.navItems}>
 				<li><Link to="/">Home</Link></li>
 				<li><Link to="/about-me">About Me</Link></li>
 				<li><Link to="/beats">Beats</Link></li>

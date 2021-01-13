@@ -72,8 +72,10 @@
 	transition: all 0.5 ease-in-out;
 }
 .header__logo{
-	width: 100px;
-	height: 100%;
+	width: 92px;
+	margin-top: -18px;
+	margin-left: -18px;
+	cursor: pointer;
 }
 
 @media screen and (min-width: 680px){
@@ -100,10 +102,9 @@
 		display: block;
 		flex: 1;
 	}
-
 	.navBar{
 		display: flex;
-
+		height: 12vh;
 	}
 
 }

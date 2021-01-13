@@ -20,4 +20,12 @@
 	.descriptionContainer{
 		display: flex;
 	}
+	.descriptionTitle {
+		padding-top: 0 !important;
+	}
+	@media (max-width: 800px) {
+		.container {
+			margin-top: 0;
+		}
+	}
 }
