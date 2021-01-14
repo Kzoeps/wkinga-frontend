@@ -7,8 +7,7 @@ export default function LoginContainer() {
 	const [password, setPassword] = useState('');
 	const [dirtyForm, setDirtyForm] = useState({email: false, password: false})
 	const [pending, setPending] = useState(false);
-	const [openError, setOpenError] = useState(false);
-	const [openSuccess, setOpenSuccess] = useState(false);
+	const [error, setError] = useState('');
 
 	const emailHandle = e => {
 		setEmail(e.target.value);
@@ -24,25 +23,17 @@ export default function LoginContainer() {
 			password: true
 		})
 	}
-	const handleClose = value => {
-		if (value === 'err') setOpenError(false);
-		else setOpenSuccess(false);
-	}
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (email && password) {
 			setPending(true);
 			const data = await login(email, password);
-			debugger;
 			if (data.accessToken) {
-				setOpenSuccess(true);
 				localStorage.setItem('token', data.accessToken);
 			} else {
-				setOpenError(true);
+				setError('Invalid Credentials');
 			}
 			setPending(false);
-			console.log(openSuccess);
-			console.log(openError);
 		}
 		setDirtyForm({
 			...dirtyForm,
@@ -59,9 +50,7 @@ export default function LoginContainer() {
 			handleSubmit={handleSubmit}
 			dirtyForm={dirtyForm}
 			pending={pending}
-			error={openError}
-			success={openSuccess}
-			handleClose={handleClose}
+			error={error}
 		/>
 	)
 }
