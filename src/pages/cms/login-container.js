@@ -8,9 +8,17 @@ export default function LoginContainer() {
 	const [dirtyForm, setDirtyForm] = useState({email: false, password: false})
 	const [pending, setPending] = useState(false);
 	const [error, setError] = useState('');
+	const [emailError, setEmailError] = useState('');
 
 	const emailHandle = e => {
 		setEmail(e.target.value);
+		if (email) {
+			if (validateEmail(email)) {
+				setEmailError('');
+			} else {
+				setEmailError('Invalid Email');
+			}
+		}
 		setDirtyForm({
 			...dirtyForm,
 			email: true
@@ -25,7 +33,8 @@ export default function LoginContainer() {
 	}
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (email && password) {
+		setError('')
+		if (email && password && validateEmail(email)) {
 			setPending(true);
 			const data = await login(email, password);
 			if (data.accessToken) {
@@ -41,6 +50,13 @@ export default function LoginContainer() {
 			email: true
 		})
 	}
+	const validateEmail = (email) => {
+		const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		if (email) {
+			return (emailRegex.test(email));
+		}
+		return false;
+	}
 	return (
 		<Login
 			email={email}
@@ -51,6 +67,7 @@ export default function LoginContainer() {
 			dirtyForm={dirtyForm}
 			pending={pending}
 			error={error}
+			emailError={emailError}
 		/>
 	)
 }

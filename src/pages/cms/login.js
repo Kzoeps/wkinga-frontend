@@ -12,6 +12,7 @@ export default function Login(props) {
 						<p className={`${utilStyles.errorMessage}`}>{props.error}</p>
 						<TextField value={props.email} onChange={props.emailHandle} className={`${styles.formField}`}
 								   id={'email'} variant={'outlined'} label={'email'}/>
+						<p className={`${utilStyles.errorMessage}`}>{props.email ? props.emailError : ''}</p>
 						<p className={`${utilStyles.errorMessage}`}>{props.dirtyForm.email ? (props.email ? '' : 'Email Required') : ''}</p>
 					</CardContent>
 					<CardContent className={`${styles.flexCenter}`}>
