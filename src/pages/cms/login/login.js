@@ -1,5 +1,5 @@
 import styles from './login.module.css';
-import utilStyles from '../../assets/global-styles/utils.module.css'
+import utilStyles from '../../../assets/global-styles/utils.module.css'
 import {Card, Button, CardContent, TextField} from '@material-ui/core';
 import React from "react";
 

@@ -1,6 +1,8 @@
 import Login from "./login";
-import {useState} from "react";
-import {login} from "../../api/auth.api";
+import {useContext, useState} from "react";
+import {login} from "../../../api/auth.api";
+import {Redirect} from 'react-router-dom';
+import {AuthContext} from "../authContext";
 
 export default function LoginContainer() {
 	const [email, setEmail] = useState('');
@@ -9,6 +11,14 @@ export default function LoginContainer() {
 	const [pending, setPending] = useState(false);
 	const [error, setError] = useState('');
 	const [emailError, setEmailError] = useState('');
+	const contextStuff = useContext(AuthContext);
+	debugger
+
+	let token;
+
+	if (localStorage.getItem('token')) {
+		token = localStorage.getItem('token');
+	}
 
 	const emailHandle = e => {
 		setEmail(e.target.value);
@@ -57,6 +67,7 @@ export default function LoginContainer() {
 		}
 		return false;
 	}
+	if (token) return (<Redirect to={'/dashboard'}/>)
 	return (
 		<Login
 			email={email}
