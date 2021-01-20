@@ -1,8 +1,13 @@
 import React from "react";
-export default function Dashboard() {
+import {Button} from "@material-ui/core";
+import PersistentDrawerLeft from "../../../components/drawer-material/cms-drawer";
+export default function Dashboard(props) {
 	return (
 		<React.Fragment>
-			Shit this works
+			<PersistentDrawerLeft/>
+			<Button variant={'outlined'} color={'primary'} onClick={props.logout}>
+				Logout
+			</Button>
 		</React.Fragment>
 	)
 }

@@ -9,7 +9,8 @@ import CheckoutContainer from "./pages/checkout/checkout-container";
 import ContactContainer from "./pages/contact/contact-container";
 import LoginContainer from "./pages/cms/login/login-container";
 import DashboardContainer from "./pages/cms/dashboard/dashboard-container";
-import {AuthProvider} from "./components/auth-context/auth-context";
+import PrivateRoute from "./components/private-route/private-route";
+import {AuthProvider} from "./components/contexts/auth-context";
 
 function App() {
 	return (
@@ -24,7 +25,7 @@ function App() {
 				<Route exact path={'/checkout'} component={CheckoutContainer}/>
 				<AuthProvider>
 					<Route exact path={'/auth/login'} component={LoginContainer}/>
-					<Route exact path={'/dashboard'} component={DashboardContainer}/>
+					<PrivateRoute exact path={'/dashboard'} component={DashboardContainer}/>
 				</AuthProvider>
 			</Switch>
 		</BrowserRouter>

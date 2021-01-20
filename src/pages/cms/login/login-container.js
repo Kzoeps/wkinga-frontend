@@ -1,8 +1,9 @@
 import Login from "./login";
 import {useContext, useState} from "react";
-import {login} from "../../../api/auth.api";
 import {Redirect} from 'react-router-dom';
-import {AuthContext} from "../authContext";
+import React from "react";
+import {AuthContext} from "../../../components/contexts/auth-context";
+import {login} from "../../../api/auth.api";
 
 export default function LoginContainer() {
 	const [email, setEmail] = useState('');
@@ -11,14 +12,7 @@ export default function LoginContainer() {
 	const [pending, setPending] = useState(false);
 	const [error, setError] = useState('');
 	const [emailError, setEmailError] = useState('');
-	const contextStuff = useContext(AuthContext);
-	debugger
-
-	let token;
-
-	if (localStorage.getItem('token')) {
-		token = localStorage.getItem('token');
-	}
+	const {token, setToken} = useContext(AuthContext);
 
 	const emailHandle = e => {
 		setEmail(e.target.value);
@@ -43,23 +37,25 @@ export default function LoginContainer() {
 	}
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		setError('')
-		if (email && password && validateEmail(email)) {
-			setPending(true);
-			const data = await login(email, password);
-			if (data.accessToken) {
-				localStorage.setItem('token', data.accessToken);
-			} else {
-				setError('Invalid Credentials');
-			}
-			setPending(false);
-		}
+		setError('');
 		setDirtyForm({
 			...dirtyForm,
 			password: true,
 			email: true
-		})
+		});
+		if (email && password && validateEmail(email)) {
+			setPending(true);
+			const accessToken = await login(email, password);
+			if (accessToken === false) {
+				setError('Invalid Credentials');
+				setPending(false);
+			} else {
+				localStorage.setItem('token', accessToken);
+				setToken(accessToken);
+			}
+		}
 	}
+
 	const validateEmail = (email) => {
 		const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		if (email) {
@@ -67,6 +63,7 @@ export default function LoginContainer() {
 		}
 		return false;
 	}
+
 	if (token) return (<Redirect to={'/dashboard'}/>)
 	return (
 		<Login
