@@ -1,28 +1,58 @@
 {
   "beats": [
-	{
-	  "id": 1,
-	  "beatName": "some thing",
-	  "beatProducer": "wkinga",
-	  "audioURL": "./sadasd/asdsad",
-	  "albumImage": "https://upload.wikimedia.org/wikipedia/en/5/52/HeadInTheClouds-Album.jpg",
-	  "trackoutLeasePrice": 30,
-	  "premiumLeasePrice": 60,
-	  "exclusivePrice": 90,
-	  "beatDuration": "2:40",
-	  "sold": false
-	},
-	{
-	  "id": 231,
-	  "beatName": "Skkr RApAPa",
-	  "beatProducer": "wkinga x chimi",
-	  "audioURL": "./sadasd/asdsad",
-	  "albumImage": "https://images.genius.com/8ababae027808d8f2de49bfcfc51488d.592x592x1.png",
-	  "trackoutLeasePrice": 20,
-	  "premiumLeasePrice": 50,
-	  "exclusivePrice": 80,
-	  "beatDuration": "3:33",
-	  "sold": false
-	}
+    {
+      "id": 1,
+      "beatName": "some thing",
+      "beatProducer": "wkinga",
+      "audioURL": "./sadasd/asdsad",
+      "albumImage": "https://upload.wikimedia.org/wikipedia/en/5/52/HeadInTheClouds-Album.jpg",
+      "trackoutLeasePrice": 30,
+      "premiumLeasePrice": 60,
+      "exclusivePrice": 90,
+      "beatDuration": "2:40",
+      "sold": false
+    },
+    {
+      "id": 231,
+      "beatName": "Skkr RApAPa",
+      "beatProducer": "wkinga x chimi",
+      "audioURL": "./sadasd/asdsad",
+      "albumImage": "https://images.genius.com/8ababae027808d8f2de49bfcfc51488d.592x592x1.png",
+      "trackoutLeasePrice": 20,
+      "premiumLeasePrice": 50,
+      "exclusivePrice": 80,
+      "beatDuration": "3:33",
+      "sold": false
+    }
+  ],
+  "orders": [
+    {
+      "beatId": 1,
+      "beatName": "some thing",
+      "beatProducer": "wkinga",
+      "audioURL": "./sadasd/asdsad",
+      "albumImage": "https://upload.wikimedia.org/wikipedia/en/5/52/HeadInTheClouds-Album.jpg",
+      "trackoutLeasePrice": 30,
+      "premiumLeasePrice": 60,
+      "exclusivePrice": 90,
+      "beatDuration": "2:40",
+      "sold": false,
+      "chosenLicenseType": "Trackout Lease",
+      "id": 1
+    },
+    {
+      "beatId": 231,
+      "beatName": "Skkr RApAPa",
+      "beatProducer": "wkinga x chimi",
+      "audioURL": "./sadasd/asdsad",
+      "albumImage": "https://images.genius.com/8ababae027808d8f2de49bfcfc51488d.592x592x1.png",
+      "trackoutLeasePrice": 20,
+      "premiumLeasePrice": 50,
+      "exclusivePrice": 80,
+      "beatDuration": "3:33",
+      "sold": false,
+      "chosenLicenseType": "Trackout Lease",
+      "id": 2
+    }
   ]
 }
