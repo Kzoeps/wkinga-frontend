@@ -6,7 +6,10 @@ import {useTheme} from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import axios from "axios";
 import {baseURL} from "../../api/baseURL";
+import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure();
 export default function CheckoutContainer() {
 	const beatsInCart = useSelector(selectCart);
 	const cartTotal = getTotal(beatsInCart);
@@ -22,7 +25,6 @@ export default function CheckoutContainer() {
 	const [check, setCheck] = useState(false);
 	const [emailError, setEmailError] = useState('');
 	const [pending, setPending] = useState(false);
-	const [success, setSuccess] = useState('');
 	const [dirtyForms, setDirtyForm] = useState({
 		firstName: false,
 		lastName: false,
@@ -32,28 +34,50 @@ export default function CheckoutContainer() {
 	});
 
 	useEffect(() => {
-		debugger;
 			if (orderClicked) {
+				const notify = (status) => {
+					if (status) {
+						toast.success('Successfully ordered',{
+							position: "top-right",
+							autoClose: 5000,
+							hideProgressBar: false,
+							closeOnClick: true,
+							pauseOnHover: true,
+							draggable: true,
+							progress: undefined,
+						})
+					} else {
+						toast.error('Uh Oh Something Went Wrong!', {
+							position: "top-right",
+							autoClose: 5000,
+							hideProgressBar: false,
+							closeOnClick: true,
+							pauseOnHover: true,
+							draggable: true,
+							progress: undefined,
+						});
+					}
+				}
 				const placeOrder = () => {
-					debugger;
 					setPending(true);
 					let iterate = true;
 					beatsInCart.forEach(async (eachBeat) => {
-							try {
-								if (iterate) await axios.post(`${baseURL}/orders`, eachBeat);
-							} catch (e) {
-								setPending(false);
-								iterate = false
-								console.log(e.message);
-								return e.message;
-							} finally {
-								if (beatsInCart.length === beatsInCart.indexOf(eachBeat) + 1) {
-									if (iterate) {
-										setPending(false);
-										console.log('success fiulll');
-									}
+						try {
+							if (iterate) await axios.post(`${baseURL}/orders`, eachBeat);
+						} catch (e) {
+							setPending(false);
+							iterate = false
+							return e.message;
+						} finally {
+							if (beatsInCart.length === beatsInCart.indexOf(eachBeat) + 1) {
+								if (iterate) {
+									setPending(false);
+									notify(true);
+								} else {
+									notify(false);
 								}
 							}
+						}
 					})
 				};
 				placeOrder();

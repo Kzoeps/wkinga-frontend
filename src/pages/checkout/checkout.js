@@ -6,6 +6,8 @@ import {Button} from "@material-ui/core";
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import Receipt from "../../components/receipt/receipt";
+import Loader from "../../components/loader/loader";
+import {ToastContainer} from "react-toastify";
 
 export default function Checkout(props) {
 	return (
@@ -110,6 +112,8 @@ export default function Checkout(props) {
 												</label>
 											</div>
 											<p className={`${utilStyles.errorMessage}`} style={{marginLeft: "10px"}}>{props.dirtyForms.check ? (props.check ? '' : 'Required to agree') : ''}</p>
+											{props.pending ? <Loader/> : ''}
+											<ToastContainer/>
 											<div className={styles.popUpBtnContainer}>
 												<Button
 													autoFocus="autoFocus"
