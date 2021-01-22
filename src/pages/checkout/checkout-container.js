@@ -1,5 +1,6 @@
 import Checkout from "./checkout";
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+import { removeAllBeats } from '../../reducers/cart-reducer';
 import {useEffect, useState} from "react";
 import {getTotal, selectCart} from "../../reducers/cart-reducer";
 import {useTheme} from "@material-ui/core/styles";
@@ -33,6 +34,7 @@ export default function CheckoutContainer() {
 		check: false
 	});
 
+	// Revisit edit if possible
 	useEffect(() => {
 			if (orderClicked) {
 				const notify = (status) => {
