@@ -1,6 +1,6 @@
 import Checkout from "./checkout";
-import {useSelector, useDispatch} from "react-redux";
-import { removeAllBeats } from '../../reducers/cart-reducer';
+import {ProcessEnum} from "../../models/models";
+import {useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {getTotal, selectCart} from "../../reducers/cart-reducer";
 import {useTheme} from "@material-ui/core/styles";
@@ -19,13 +19,13 @@ export default function CheckoutContainer() {
 	const [email, setEmail] = useState('');
 	const [journalNumber, setJournalNumber] = useState('');
 	const [flag, setFlag] = useState(true);
-	const [orderClicked, setOrderClicked] = useState(false);
 	const theme = useTheme();
 	const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
 	const [open, setOpen] = useState(false);
 	const [check, setCheck] = useState(false);
 	const [emailError, setEmailError] = useState('');
 	const [pending, setPending] = useState(false);
+	const [notify, setNotify] = useState('');
 	const [dirtyForms, setDirtyForm] = useState({
 		firstName: false,
 		lastName: false,
@@ -36,57 +36,49 @@ export default function CheckoutContainer() {
 
 	// Revisit edit if possible
 	useEffect(() => {
-			if (orderClicked) {
-				const notify = (status) => {
-					if (status) {
-						toast.success('Successfully ordered',{
-							position: "top-right",
-							autoClose: 5000,
-							hideProgressBar: false,
-							closeOnClick: true,
-							pauseOnHover: true,
-							draggable: true,
-							progress: undefined,
-						})
-					} else {
-						toast.error('Uh Oh Something Went Wrong!', {
-							position: "top-right",
-							autoClose: 5000,
-							hideProgressBar: false,
-							closeOnClick: true,
-							pauseOnHover: true,
-							draggable: true,
-							progress: undefined,
-						});
-					}
-				}
-				const placeOrder = () => {
-					setPending(true);
-					let iterate = true;
-					beatsInCart.forEach(async (eachBeat) => {
-						try {
-							if (iterate) await axios.post(`${baseURL}/orders`, eachBeat);
-						} catch (e) {
-							setPending(false);
-							iterate = false
-							return e.message;
-						} finally {
-							if (beatsInCart.length === beatsInCart.indexOf(eachBeat) + 1) {
-								if (iterate) {
-									setPending(false);
-									notify(true);
-								} else {
-									notify(false);
-								}
-							}
-						}
-					})
+			if (notify === ProcessEnum.fail || notify === ProcessEnum.success) {
+				const toastMe = (status) => {
+					let toastType;
+					if (status === ProcessEnum.success) toastType = 'success';
+					else toastType = 'error';
+					toast[toastType](toastType === 'success' ? 'Successfully Ordered!' : 'Uh Oh Something Went Wrong', {
+						position: "top-right",
+						autoClose: 5000,
+						hideProgressBar: false,
+						closeOnClick: true,
+						pauseOnHover: true,
+						draggable: true,
+						progress: undefined,
+					});
 				};
-				placeOrder();
+				toastMe(notify)
 			}
 		},
-		[orderClicked, beatsInCart]
+		[notify]
 	)
+
+	const placeOrder = () => {
+		setPending(true);
+		let shouldProceed = true;
+		beatsInCart.forEach(async (eachBeat) => {
+			try {
+				if (shouldProceed) await axios.post(`${baseURL}/orders`, eachBeat)
+			} catch (e) {
+				setPending(false);
+				shouldProceed = false;
+				return e.message;
+			} finally {
+				if (beatsInCart.length === beatsInCart.indexOf(eachBeat) + 1) {
+					if (shouldProceed) {
+						setNotify(ProcessEnum.success);
+					} else {
+						setNotify(ProcessEnum.fail);
+					}
+					setPending(false);
+				}
+			}
+		})
+	}
 	const firstNameHandle = e => {
 		setFirstName(e.target.value);
 		setDirtyForm({
@@ -143,7 +135,7 @@ export default function CheckoutContainer() {
 			// window.open(
 			// 	`mailto:jigmetashi02@gmail.com?subject=MakingOrder&body=Name: ${firstName} ${lastName}`
 			// );
-			setOrderClicked(true);
+			placeOrder();
 		}
 		setDirtyForm({
 			...dirtyForms,
