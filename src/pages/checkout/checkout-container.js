@@ -1,8 +1,8 @@
 import Checkout from "./checkout";
 import {ProcessEnum} from "../../models/models";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {getTotal, selectCart} from "../../reducers/cart-reducer";
+import {getTotal, initCart, selectCart} from "../../reducers/cart-reducer";
 import {useTheme} from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import axios from "axios";
@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 toast.configure();
 export default function CheckoutContainer() {
 	const beatsInCart = useSelector(selectCart);
+	const dispatch = useDispatch();
 	const cartTotal = getTotal(beatsInCart);
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
@@ -34,13 +35,13 @@ export default function CheckoutContainer() {
 		check: false
 	});
 
-	// Revisit edit if possible
 	useEffect(() => {
 			if (notify === ProcessEnum.fail || notify === ProcessEnum.success) {
 				const toastMe = (status) => {
 					let toastType;
-					if (status === ProcessEnum.success) toastType = 'success';
-					else toastType = 'error';
+					if (status === ProcessEnum.success) {
+						toastType = 'success';
+					} else toastType = 'error';
 					toast[toastType](toastType === 'success' ? 'Successfully Ordered!' : 'Uh Oh Something Went Wrong', {
 						position: "top-right",
 						autoClose: 5000,
@@ -56,13 +57,22 @@ export default function CheckoutContainer() {
 		},
 		[notify]
 	)
+	useEffect(() => {
+		if (notify === ProcessEnum.success && !pending) {
+			const resetCart = () => {
+				dispatch(initCart());
+			}
+			resetCart();
+		}
+	}, [notify, dispatch, pending])
 
 	const placeOrder = () => {
 		setPending(true);
 		let shouldProceed = true;
 		beatsInCart.forEach(async (eachBeat) => {
 			try {
-				if (shouldProceed) await axios.post(`${baseURL}/orders`, eachBeat)
+				const beatWithJournalID = { ...eachBeat, journalID: journalNumber}
+				if (shouldProceed) await axios.post(`${baseURL}/orders`, beatWithJournalID)
 			} catch (e) {
 				setPending(false);
 				shouldProceed = false;

@@ -57,7 +57,7 @@ export const cartSlice = createSlice({
 				}
 			}
 		},
-		removeAllBeats: {
+		initCart: {
 			reducer(state) {
 				state.beats = []
 			}
@@ -72,7 +72,7 @@ export const cartSlice = createSlice({
 
 export const selectCart = state => state.cart.beats;
 
-export const {addBeatToCart, removeBeat, setCurrentBeat, removeAllBeats} = cartSlice.actions;
+export const {addBeatToCart, removeBeat, setCurrentBeat, initCart} = cartSlice.actions;
 
 export const getLicensePrice = beat => {
 	const licenseTypes = {
