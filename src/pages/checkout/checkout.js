@@ -1,7 +1,5 @@
 import styles from './checkout.module.css';
 import utilStyles from '../../assets/global-styles/utils.module.css'
-import NavigationBar from "../../components/navigation-bar/navigationBar";
-import Footer from "../../components/footer/footer";
 import {Button} from "@material-ui/core";
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -12,7 +10,6 @@ import {ToastContainer} from "react-toastify";
 export default function Checkout(props) {
 	return (
 		<div className={styles.checkoutContainer}>
-			<NavigationBar/>
 			<div className={styles.checkOutTitleHolder}>
 				<p>Check Out</p>
 				<div className={styles.btnTypeholder}>
@@ -189,7 +186,6 @@ export default function Checkout(props) {
 
 				}
 			</form>
-			<Footer/>
 		</div>
 	)
 }

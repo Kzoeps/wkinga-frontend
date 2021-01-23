@@ -1,14 +1,11 @@
 import styles from './contact.module.css';
 import utilStyles from '../../assets/global-styles/utils.module.css';
-import Footer from "../../components/footer/footer";
 import Button from "../../components/button/button";
-import NavigationBar from "../../components/navigation-bar/navigationBar";
 
 export default function Contact(props) {
 
 	return (
 		<div className={styles.contactUsContainer}>
-			<NavigationBar/>
 			<div className={styles.contactUsTitleHolder}>
 				<p>Got Questions ?</p>
 				<h3>Contact WBK</h3>
@@ -67,8 +64,6 @@ export default function Contact(props) {
 				</div>
 				<Button buttonLabel={'Send Message'} className={styles.contactUsButton} onClick={props.submit}/>
 			</form>
-
-			<Footer/>
 		</div>
 	)
 }

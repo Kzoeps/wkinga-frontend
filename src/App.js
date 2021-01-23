@@ -11,10 +11,14 @@ import LoginContainer from "./pages/cms/login/login-container";
 import DashboardContainer from "./pages/cms/dashboard/dashboard-container";
 import PrivateRoute from "./components/private-route/private-route";
 import {AuthProvider} from "./components/contexts/auth-context";
+import NavigationBar from './components/navigation-bar/navigationBar';
+// import Auth from './components/auth/Auth';
+import Footer from './components/footer/footer';
 
 function App() {
 	return (
 		<BrowserRouter>
+		<NavigationBar />
 			<Switch>
 				<Route exact path={'/'} component={HomeContainer}/>
 				<Route exact path={'/home'} component={HomeContainer}/>
@@ -27,7 +31,9 @@ function App() {
 					<Route exact path={'/auth/login'} component={LoginContainer}/>
 					<PrivateRoute exact path={'/dashboard'} component={DashboardContainer}/>
 				</AuthProvider>
+				{/*<Route exact path={'/login'} component={Auth}/>*/}
 			</Switch>
+			<Footer />
 		</BrowserRouter>
 	);
 }
