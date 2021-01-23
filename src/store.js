@@ -16,6 +16,7 @@ const reducers = combineReducers({
 	beats: beatsReducer,
 	cart: cartReducer
 })
+
 const persistConfig = {
 	key: 'root',
 	storage,
@@ -23,6 +24,7 @@ const persistConfig = {
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers)
+
 export default configureStore({
 	reducer: persistedReducer,
 	middleware: getDefaultMiddleware({

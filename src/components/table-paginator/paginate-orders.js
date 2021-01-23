@@ -17,6 +17,7 @@ const columns = [
 export default function DataTable() {
 	const [orders, setOrders] = useState([]);
 	const [pending, setPending] = useState(true);
+
 	useEffect(() => {
 		const getOrders = async () => {
 			try {
