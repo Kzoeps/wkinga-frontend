@@ -9,6 +9,7 @@ import CheckoutContainer from "./pages/checkout/checkout-container";
 import ContactContainer from "./pages/contact/contact-container";
 import NavigationBar from './components/navigation-bar/navigationBar';
 import Auth from './components/auth/Auth';
+import Footer from './components/footer/footer';
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 				<Route exact path={'/checkout'} component={CheckoutContainer}/>
 				<Route exact path={'/login'} component={Auth}/>
 			</Switch>
+			<Footer />
 		</BrowserRouter>
 	);
 }

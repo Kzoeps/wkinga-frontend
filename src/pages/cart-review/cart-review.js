@@ -1,7 +1,6 @@
 import utilStyles from '../../assets/global-styles/utils.module.css';
 import Header from "../../components/header/header";
 import CartSummary from "../../components/cart-summary/cart-summary";
-import Footer from "../../components/footer/footer";
 import styles from './cart-review.module.css'
 
 export default function CartReview(props) {
@@ -16,7 +15,6 @@ export default function CartReview(props) {
 					<CartSummary/>
 				</div>
 			</div>
-			<Footer/>
 		</div>
 	)
 }

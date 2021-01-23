@@ -1,6 +1,5 @@
 import styles from './contact.module.css';
 import utilStyles from '../../assets/global-styles/utils.module.css';
-import Footer from "../../components/footer/footer";
 import Button from "../../components/button/button";
 
 export default function Contact(props) {
@@ -65,8 +64,6 @@ export default function Contact(props) {
 				</div>
 				<Button buttonLabel={'Send Message'} className={styles.contactUsButton} onClick={props.submit}/>
 			</form>
-
-			<Footer/>
 		</div>
 	)
 }

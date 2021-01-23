@@ -1,5 +1,4 @@
 import styles from './home.module.css'
-import Footer from "../../components/footer/footer";
 import Playlist from "../../components/playlist/playlist";
 import Loader from "../../components/loader/loader";
 
@@ -26,8 +25,6 @@ export default function Home(props) {
 						  imageOne="https://images.genius.com/8ababae027808d8f2de49bfcfc51488d.592x592x1.png"
 						  imageTwo="https://upload.wikimedia.org/wikipedia/en/5/52/HeadInTheClouds-Album.jpg"/>
 			</div> : <Loader/> }
-
-			<Footer/>
 		</div>
 	)
 }

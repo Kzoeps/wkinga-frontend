@@ -3,7 +3,6 @@ import styles from './beats.module.css';
 import Button from "../../components/button/button";
 import BeatsPlayer from "../../components/beat-player/beat-player";
 import CartSummary from "../../components/cart-summary/cart-summary";
-import Footer from "../../components/footer/footer";
 import Header from "../../components/header/header";
 import {Link} from "react-router-dom";
 import Loader from "../../components/loader/loader";
@@ -44,7 +43,6 @@ export default function Beats(props) {
 				</div>
 				<div className={styles.cartSummary}><CartSummary/></div>
 			</div>
-			<Footer/>
 		</div>
 
 	)
