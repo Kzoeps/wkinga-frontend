@@ -7,10 +7,12 @@ import CartReviewContainer from "./pages/cart-review/cart-review-container";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CheckoutContainer from "./pages/checkout/checkout-container";
 import ContactContainer from "./pages/contact/contact-container";
+import NavigationBar from './components/navigation-bar/navigationBar';
 
 function App() {
 	return (
 		<BrowserRouter>
+		<NavigationBar />
 			<Switch>
 				<Route exact path={'/'} component={HomeContainer}/>
 				<Route exact path={'/home'} component={HomeContainer}/>

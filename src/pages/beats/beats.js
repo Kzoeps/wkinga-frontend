@@ -1,4 +1,3 @@
-import NavigationBar from "../../components/navigation-bar/navigationBar";
 import utilStyles from '../../assets/global-styles/utils.module.css';
 import styles from './beats.module.css';
 import Button from "../../components/button/button";
@@ -12,7 +11,6 @@ import Loader from "../../components/loader/loader";
 export default function Beats(props) {
 	return (
 		<div className={`${utilStyles.backgroundColor} ${styles.metaContainer}`}>
-			<NavigationBar/>
 			<Header title={'Beats'}/>
 			<div className={`${styles.beatsDescriptionComp} ${utilStyles.text}`}>
 				<div className={`${styles.descriptionItem}`}>
