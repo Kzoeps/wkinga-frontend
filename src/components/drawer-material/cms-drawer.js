@@ -132,8 +132,8 @@ export default function PersistentDrawerLeft() {
 				<Divider/>
 				<List>
 					{['Dashboard', 'Upload'].map((text, index) => (
-						<Link to={navigate[index]}>
-							<ListItem button key={text}>
+						<Link to={navigate[index]} key={text}>
+							<ListItem button>
 								<ListItemIcon>{icons[index]}</ListItemIcon>
 								<ListItemText primary={text}/>
 							</ListItem>

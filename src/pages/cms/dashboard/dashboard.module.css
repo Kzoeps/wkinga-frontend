@@ -1,0 +1,10 @@
+.container {
+	display: flex;
+	flex-direction: column;
+}
+.dataContainer {
+	margin: 80px auto 80px auto;
+	width: 80%;
+	box-shadow: 21px 21px 39px #bdbdbd,
+	-21px -21px 39px #ffffff;
+}
