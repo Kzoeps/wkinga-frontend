@@ -1,12 +1,19 @@
 import Checkout from "./checkout";
-import {useSelector} from "react-redux";
-import {useState} from "react";
-import {getTotal, selectCart} from "../../reducers/cart-reducer";
+import {ProcessEnum} from "../../models/models";
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect, useState} from "react";
+import {getTotal, initCart, selectCart} from "../../reducers/cart-reducer";
 import {useTheme} from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import axios from "axios";
+import {baseURL} from "../../api/baseURL";
+import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure();
 export default function CheckoutContainer() {
 	const beatsInCart = useSelector(selectCart);
+	const dispatch = useDispatch();
 	const cartTotal = getTotal(beatsInCart);
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
@@ -18,8 +25,70 @@ export default function CheckoutContainer() {
 	const [open, setOpen] = useState(false);
 	const [check, setCheck] = useState(false);
 	const [emailError, setEmailError] = useState('');
-	const [dirtyForms, setDirtyForm] = useState({ firstName: false, lastName: false, email: false, journalNumber: false, check: false});
+	const [pending, setPending] = useState(false);
+	const [notify, setNotify] = useState('');
+	const [dirtyForms, setDirtyForm] = useState({
+		firstName: false,
+		lastName: false,
+		email: false,
+		journalNumber: false,
+		check: false
+	});
 
+	useEffect(() => {
+			if (notify === ProcessEnum.fail || notify === ProcessEnum.success) {
+				const toastMe = (status) => {
+					let toastType;
+					if (status === ProcessEnum.success) {
+						toastType = 'success';
+					} else toastType = 'error';
+					toast[toastType](toastType === 'success' ? 'Successfully Ordered!' : 'Uh Oh Something Went Wrong', {
+						position: "top-right",
+						autoClose: 5000,
+						hideProgressBar: false,
+						closeOnClick: true,
+						pauseOnHover: true,
+						draggable: true,
+						progress: undefined,
+					});
+				};
+				toastMe(notify)
+			}
+		},
+		[notify]
+	)
+	useEffect(() => {
+		if (notify === ProcessEnum.success && !pending) {
+			const resetCart = () => {
+				dispatch(initCart());
+			}
+			resetCart();
+		}
+	}, [notify, dispatch, pending])
+
+	const placeOrder = () => {
+		setPending(true);
+		let shouldProceed = true;
+		beatsInCart.forEach(async (eachBeat) => {
+			try {
+				const beatWithJournalID = { ...eachBeat, journalID: journalNumber}
+				if (shouldProceed) await axios.post(`${baseURL}/orders`, beatWithJournalID)
+			} catch (e) {
+				setPending(false);
+				shouldProceed = false;
+				return e.message;
+			} finally {
+				if (beatsInCart.length === beatsInCart.indexOf(eachBeat) + 1) {
+					if (shouldProceed) {
+						setNotify(ProcessEnum.success);
+					} else {
+						setNotify(ProcessEnum.fail);
+					}
+					setPending(false);
+				}
+			}
+		})
+	}
 	const firstNameHandle = e => {
 		setFirstName(e.target.value);
 		setDirtyForm({
@@ -70,12 +139,13 @@ export default function CheckoutContainer() {
 			check: true
 		})
 	}
-	const handleSubmit = e => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (journalNumber && check) {
-			window.open(
-				`mailto:jigmetashi02@gmail.com?subject=MakingOrder&body=Name: ${firstName} ${lastName}`
-			)
+			// window.open(
+			// 	`mailto:jigmetashi02@gmail.com?subject=MakingOrder&body=Name: ${firstName} ${lastName}`
+			// );
+			placeOrder();
 		}
 		setDirtyForm({
 			...dirtyForms,
@@ -112,6 +182,7 @@ export default function CheckoutContainer() {
 			handleSubmit={handleSubmit}
 			emailError={emailError}
 			dirtyForms={dirtyForms}
+			pending={pending}
 		/>
 	)
 }
