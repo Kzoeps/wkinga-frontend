@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import clsx from 'clsx';
 import {makeStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -17,6 +17,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from "react-router-dom";
+import {Button} from "@material-ui/core";
+import {AuthContext} from "../contexts/auth-context";
 
 const drawerWidth = 240;
 
@@ -82,6 +84,7 @@ export default function PersistentDrawerLeft() {
 	const [open, setOpen] = React.useState(false);
 	const icons = [<MdDashboard/>, <BsUpload/>]
 	const navigate = ['/dashboard', '/upload']
+	const { logout } = useContext(AuthContext);
 
 	const handleDrawerOpen = () => {
 		setOpen(true);
@@ -100,20 +103,23 @@ export default function PersistentDrawerLeft() {
 					[classes.appBarShift]: open,
 				})}
 			>
-				<Toolbar>
-					<IconButton
-						color="inherit"
-						aria-label="open drawer"
-						onClick={handleDrawerOpen}
-						edge="start"
-						className={clsx(classes.menuButton, open && classes.hide)}
-					>
-						<MenuIcon/>
-					</IconButton>
-					<Typography variant="h6" noWrap>
-						Manage
-					</Typography>
-				</Toolbar>
+				<div style={{display: 'flex', justifyContent: 'space-between'}}>
+					<Toolbar>
+						<IconButton
+							color="inherit"
+							aria-label="open drawer"
+							onClick={handleDrawerOpen}
+							edge="start"
+							className={clsx(classes.menuButton, open && classes.hide)}
+						>
+							<MenuIcon/>
+						</IconButton>
+						<Typography variant="h6" noWrap>
+							Manage
+						</Typography>
+					</Toolbar>
+					<Button style={{marginRight: "30px", height: "40px", marginTop: "20px"}} color={'secondary'} onClick={logout} variant={'contained'}>Logout</Button>
+				</div>
 			</AppBar>
 			<Drawer
 				className={classes.drawer}
