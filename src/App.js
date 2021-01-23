@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CheckoutContainer from "./pages/checkout/checkout-container";
 import ContactContainer from "./pages/contact/contact-container";
 import NavigationBar from './components/navigation-bar/navigationBar';
+import Auth from './components/auth/Auth';
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 				<Route exact path={'/about-me'} component={AboutMe}/>
 				<Route exact path={'/contact'} component={ContactContainer}/>
 				<Route exact path={'/checkout'} component={CheckoutContainer}/>
+				<Route exact path={'/login'} component={Auth}/>
 			</Switch>
 		</BrowserRouter>
 	);

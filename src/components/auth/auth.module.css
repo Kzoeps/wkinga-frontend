@@ -1,0 +1,35 @@
+.authContainer{
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    padding:100px;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.authTitle{
+    display: flex;
+    padding-top: 50px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.formContainer{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.formStyle > input{
+    width: 60vw;
+    height: 50px;
+}
+.loginBtn{
+    background-color: black !important;
+    color: white !important;
+    width: 60vw !important;
+    margin-top: 30px !important;
+    padding: 10px 30px !important;
+}
