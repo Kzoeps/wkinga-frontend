@@ -23,7 +23,7 @@ function App() {
 				<Route exact path={'/about-me'} component={AboutMe}/>
 				<Route exact path={'/contact'} component={ContactContainer}/>
 				<Route exact path={'/checkout'} component={CheckoutContainer}/>
-				<Route exact path={'/login'} component={Auth}/>
+				{/*<Route exact path={'/login'} component={Auth}/>*/}
 			</Switch>
 			<Footer />
 		</BrowserRouter>
