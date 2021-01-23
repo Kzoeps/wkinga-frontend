@@ -2,10 +2,13 @@ import utilStyles from '../../assets/global-styles/utils.module.css'
 import styles from './about-me.module.css';
 import Header from "../../components/header/header";
 import CollaborationsHolder from "../../components/collaborations-holder/collaborations-holder";
+import NavigationBar from "../../components/navigation-bar/navigationBar";
+import Footer from "../../components/footer/footer";
 
 export default function AboutMe() {
 	return (
 		<div className={`${utilStyles.backgroundColor} ${styles.aboutMeContainer}`}>
+			<NavigationBar/>
 			<Header title={'About Me'}/>
 			<div className={`${utilStyles.text} ${styles.text} ${styles.descriptionWK}`}>
 				<p>
@@ -34,6 +37,7 @@ export default function AboutMe() {
 				<CollaborationsHolder img={'https://images.genius.com/8ababae027808d8f2de49bfcfc51488d.592x592x1.png'}
 									  description={'Wangchuk K X DORJidorol'}/>
 			</div>
+			<Footer/>
 		</div>
 	)
 }

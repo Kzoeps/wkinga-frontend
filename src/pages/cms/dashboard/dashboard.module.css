@@ -8,3 +8,9 @@
 	box-shadow: 21px 21px 39px #bdbdbd,
 	-21px -21px 39px #ffffff;
 }
+
+@media (max-width: 600px) {
+	.dataContainer {
+		width: 95%;
+	}
+}

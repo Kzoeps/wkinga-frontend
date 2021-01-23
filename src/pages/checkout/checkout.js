@@ -6,10 +6,13 @@ import DialogContent from '@material-ui/core/DialogContent';
 import Receipt from "../../components/receipt/receipt";
 import Loader from "../../components/loader/loader";
 import {ToastContainer} from "react-toastify";
+import NavigationBar from "../../components/navigation-bar/navigationBar";
+import Footer from "../../components/footer/footer";
 
 export default function Checkout(props) {
 	return (
 		<div className={styles.checkoutContainer}>
+			<NavigationBar/>
 			<div className={styles.checkOutTitleHolder}>
 				<p>Check Out</p>
 				<div className={styles.btnTypeholder}>
@@ -186,6 +189,7 @@ export default function Checkout(props) {
 
 				}
 			</form>
+			<Footer/>
 		</div>
 	)
 }

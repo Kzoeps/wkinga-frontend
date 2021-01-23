@@ -1,10 +1,13 @@
 import styles from './home.module.css'
 import Playlist from "../../components/playlist/playlist";
 import Loader from "../../components/loader/loader";
+import NavigationBar from "../../components/navigation-bar/navigationBar";
+import Footer from "../../components/footer/footer";
 
 export default function Home(props) {
 	return (
 		<div className={styles.containerEn}>
+			<NavigationBar/>
 			<main className={styles.mainPage}>
 				<div className={styles.mainContentContainer}>
 					<div className={styles.homeHeadingContainer}>
@@ -25,6 +28,7 @@ export default function Home(props) {
 						  imageOne="https://images.genius.com/8ababae027808d8f2de49bfcfc51488d.592x592x1.png"
 						  imageTwo="https://upload.wikimedia.org/wikipedia/en/5/52/HeadInTheClouds-Album.jpg"/>
 			</div> : <Loader/> }
+			<Footer/>
 		</div>
 	)
 }

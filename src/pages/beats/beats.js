@@ -6,10 +6,13 @@ import CartSummary from "../../components/cart-summary/cart-summary";
 import Header from "../../components/header/header";
 import {Link} from "react-router-dom";
 import Loader from "../../components/loader/loader";
+import NavigationBar from "../../components/navigation-bar/navigationBar";
+import Footer from "../../components/footer/footer";
 
 export default function Beats(props) {
 	return (
 		<div className={`${utilStyles.backgroundColor} ${styles.metaContainer}`}>
+			<NavigationBar/>
 			<Header title={'Beats'}/>
 			<div className={`${styles.beatsDescriptionComp} ${utilStyles.text}`}>
 				<div className={`${styles.descriptionItem}`}>
@@ -43,6 +46,7 @@ export default function Beats(props) {
 				</div>
 				<div className={styles.cartSummary}><CartSummary/></div>
 			</div>
+			<Footer/>
 		</div>
 
 	)
