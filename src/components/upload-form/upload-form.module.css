@@ -1,0 +1,16 @@
+.formContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: 80px auto 0 auto !important;
+	width: 90%;
+}
+.form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.formItem{
+	margin-top: 20px;
+	width: 100%;
+}

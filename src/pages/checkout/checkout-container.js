@@ -44,7 +44,7 @@ export default function CheckoutContainer() {
 					} else toastType = 'error';
 					toast[toastType](toastType === 'success' ? 'Successfully Ordered!' : 'Uh Oh Something Went Wrong', {
 						position: "top-right",
-						autoClose: 5000,
+						autoClose: 2500,
 						hideProgressBar: false,
 						closeOnClick: true,
 						pauseOnHover: true,
