@@ -34,6 +34,39 @@
       "exclusivePrice": "70",
       "sold": false,
       "id": 232
+    },
+    {
+      "beatName": "EdGy TiTLE",
+      "beatProducer": "WKinga Beats",
+      "audioURL": "httpasd/asda/adsf",
+      "albumImage": "https://i.pinimg.com/originals/0a/f3/fd/0af3fd70347038998d08906a5510696e.jpg",
+      "trackoutLeasePrice": "23",
+      "premiumLeasePrice": "42",
+      "exclusivePrice": "88",
+      "sold": false,
+      "id": 233
+    },
+    {
+      "beatName": "double happiness",
+      "beatProducer": "wkina",
+      "audioURL": "htsda/adsfadsf",
+      "albumImage": "https://media.newyorker.com/photos/5aa932e49145c42a9857d2e9/master/pass/180326_r31736web.jpg",
+      "trackoutLeasePrice": "25",
+      "premiumLeasePrice": "50",
+      "exclusivePrice": "75",
+      "sold": false,
+      "id": 234
+    },
+    {
+      "beatName": "RedBone",
+      "beatProducer": "wksin",
+      "audioURL": "adfa/adsf",
+      "albumImage": "https://media.pitchfork.com/photos/5929bfdcc0084474cd0c30d7/1:1/w_600/33796b07.jpg",
+      "trackoutLeasePrice": "23",
+      "premiumLeasePrice": "23",
+      "exclusivePrice": "43",
+      "sold": false,
+      "id": 235
     }
   ],
   "users": [

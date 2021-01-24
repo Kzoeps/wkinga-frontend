@@ -66,6 +66,8 @@ export default function UploadForm() {
 			const uploadStatus = await uploadBeat(makeBeat());
 			if (uploadStatus === ProcessEnum.success) {
 				setUploadStatus(ProcessEnum.success);
+				setDirtyForm(initDirtyForm);
+				emptyBeat();
 			} else {
 				setUploadStatus(ProcessEnum.fail)
 			}
@@ -73,7 +75,7 @@ export default function UploadForm() {
 		}
 	}
 	const makeBeat = () => {
-		return  {
+		return {
 			beatName: beatName,
 			beatProducer: beatProd,
 			audioURL: audio,
@@ -83,7 +85,15 @@ export default function UploadForm() {
 			exclusivePrice: exclusivePrice,
 			sold: false
 		};
-
+	}
+	const emptyBeat = () => {
+		setBeatName('');
+		setBeatProd('');
+		setAudio('');
+		setAlbumImg('');
+		setTrackoutPrice('');
+		setPremiumPrice('');
+		setExclusivePrice('');
 	}
 	const validForm = () => {
 		return !!(beatName && beatProd && audio && albumImg && trackoutPrice && premiumPrice && exclusivePrice);
@@ -95,21 +105,23 @@ export default function UploadForm() {
 					<TextField
 						onChange={(e) => handleChange(e, setBeatName, 'beatName')} className={`${styles.formItem}`}
 						required={true}
+						value={beatName}
 						id="beatName" label="Beat Name" variant="outlined"/>
 					<p className={`${utilStyles.errorMessage}`}>{dirtyForm.beatName ? (beatName ? '' : 'Beat Name Is Required') : ''}</p>
 					<TextField
 						onChange={(e) => handleChange(e, setBeatProd, 'beatProd')} className={`${styles.formItem}`}
 						required={true}
+						value={beatProd}
 						id='beatproducer' label='Beat Producer' variant='outlined'/>
 					<p className={`${utilStyles.errorMessage}`}>{dirtyForm.beatProd ? (beatProd ? '' : 'Beat Producer Is Required') : ''}</p>
 					<TextField onChange={(e) => handleChange(e, setAudio, 'audio')} className={`${styles.formItem}`}
 							   required={true} id='audio' label='Audio'
-							   variant={'outlined'}/>
+							   variant={'outlined'} value={audio}/>
 					<p className={`${utilStyles.errorMessage}`}>{dirtyForm.audio ? (audio ? '' : 'Audio Is Required') : ''}</p>
 					{pending ? <Loader/> : ''}
 					<TextField onChange={(e) => handleChange(e, setAlbumImg, 'albumImg')}
 							   className={`${styles.formItem}`} required={true} id={'albumimg'} label='Album Image'
-							   variant={'outlined'}/>
+							   variant={'outlined'} value={albumImg}/>
 					<p className={`${utilStyles.errorMessage}`}>{dirtyForm.albumImg ? (albumImg ? '' : 'Album Img Is Required') : ''}</p>
 					<TextField onChange={(e) => handleChange(e, setTrackoutPrice, 'trackoutPrice')}
 							   className={`${styles.formItem}`} required={true} id={'trackoutlease'} type='number'
@@ -125,7 +137,8 @@ export default function UploadForm() {
 					<p className={`${utilStyles.errorMessage}`}>{dirtyForm.exclusivePrice ? (exclusivePrice ? '' : 'Exclusive Price Is Required') : ''}</p>
 				</form>
 			</div>
-			<Button variant={'contained'} color={'primary'} onClick={handleSubmit}>Submit</Button>
+			<div className={styles.buttonContainer}><Button variant={'contained'} color={'primary'}
+															onClick={handleSubmit}>Submit</Button></div>
 			<ToastContainer/>
 		</React.Fragment>
 	)

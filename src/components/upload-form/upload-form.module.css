@@ -14,3 +14,9 @@
 	margin-top: 20px;
 	width: 100%;
 }
+.buttonContainer {
+	margin: 40px auto 0 auto;
+	width: 90%;
+	display: flex;
+	justify-content: flex-end;
+}
