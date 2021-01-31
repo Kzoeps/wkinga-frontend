@@ -3,11 +3,11 @@ import axios from "axios";
 import {baseURL} from "../api/baseURL";
 
 export const fetchBeats = createAsyncThunk('beats/fetchBeats', async () => {
-	const response = await axios.get(`${baseURL}/beats`)
+	const response = await axios.get(`/beats`)
 	return response.data
 })
 export const fetchBeatById = createAsyncThunk('beats/fetchBeatById', async (beatId) => {
-	const response = await axios.get(`${baseURL}/beats/${beatId}`)
+	const response = await axios.get(`/beats/${beatId}`)
 	return response.data
 })
 

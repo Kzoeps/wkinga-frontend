@@ -7,7 +7,7 @@ import { nanoid } from "@reduxjs/toolkit";
 
 export default function LicenseForm(props) {
 	const beat = useSelector(state => state.cart.currentBeat);
-	const licensePrices = [{'Trackout Lease': beat.trackoutLeasePrice}, {'Premium Lease':beat.premiumLeasePrice}, {'Exclusive': beat.exclusivePrice}];
+	const licensePrices = [{'Trackout Lease': beat.trackoutLeasePrice}, {'Premium Lease':beat.premiumLeasePrice}, {'Unlimited Lease': beat.unlimitedLeasePrice},{'Exclusive': beat.exclusivePrice}];
 
 	const licensesInfo = licensePrices.map(license => (
 		<LicenseInfo key={nanoid()} beatInfo={license} beat={beat} beatId={beat.id} setShow={props.setShow} setLabel={props.setLabel}/>

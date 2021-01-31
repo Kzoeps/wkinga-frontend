@@ -16,33 +16,15 @@ export const cartSlice = createSlice({
 				}
 			},
 			prepare(beat, licenseType) {
-				const {
-					id,
-					beatName,
-					beatProducer,
-					audioURL,
-					albumImage,
-					trackoutLeasePrice,
-					premiumLeasePrice,
-					exclusivePrice,
-					beatDuration,
-					sold
-				} = beat
-				return {
+				const payload = {
 					payload: {
-						beatId: id,
-						beatName,
-						beatProducer,
-						audioURL,
-						albumImage,
-						trackoutLeasePrice,
-						premiumLeasePrice,
-						exclusivePrice,
-						beatDuration,
-						sold,
+						...beat,
+						beatId: beat.id,
 						chosenLicenseType: licenseType
 					}
 				}
+				delete payload.payload.id;
+				return payload;
 			}
 		},
 		removeBeat: {
@@ -78,6 +60,7 @@ export const getLicensePrice = beat => {
 	const licenseTypes = {
 		'Trackout Lease': 'trackoutLeasePrice',
 		'Premium Lease': 'premiumLeasePrice',
+		'Unlimited Lease': 'unlimitedLeasePrice',
 		'Exclusive': 'exclusivePrice'
 	}
 	return beat[licenseTypes[beat.chosenLicenseType]];

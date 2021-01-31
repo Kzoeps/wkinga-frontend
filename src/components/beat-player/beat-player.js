@@ -23,11 +23,16 @@ export default function BeatsPlayer(props) {
 			dispatch(removeBeat(props.beat.id));
 		}
 	}
+	const calculateBeatDuration = (duration) => {
+		const minute = Math.floor(duration/60);
+		const seconds = duration% 60;
+		return `${minute}:${seconds}`
+	}
 	return (
 		<div>
 			<div className={styles.beatsPlayerContainer}>
 				<div className={styles.albumArtContainer}>
-					<img src={props.beat.albumImage} alt={'album'}/>
+					<img src={props.beat.imgURL} alt={'album'}/>
 				</div>
 				<div className={styles.beatDescription}>
 					<div className={styles.songTitleMinute}>
@@ -35,7 +40,7 @@ export default function BeatsPlayer(props) {
 							{props.beat.beatName}
 						</div>
 						<div className={styles.songMinute}>
-							{props.beat.beatDuration}
+							{calculateBeatDuration(props.beat.beatDuration)}
 						</div>
 					</div>
 					<div className={styles.prodCart}>
