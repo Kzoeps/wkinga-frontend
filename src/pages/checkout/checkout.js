@@ -113,7 +113,6 @@ export default function Checkout(props) {
 											</div>
 											<p className={`${utilStyles.errorMessage}`} style={{marginLeft: "10px"}}>{props.dirtyForms.check ? (props.check ? '' : 'Required to agree') : ''}</p>
 											{props.pending ? <Loader/> : ''}
-											<ToastContainer/>
 											<div className={styles.popUpBtnContainer}>
 												<Button
 													autoFocus="autoFocus"
@@ -189,6 +188,7 @@ export default function Checkout(props) {
 
 				}
 			</form>
+			<ToastContainer/>
 			<Footer/>
 		</div>
 	)

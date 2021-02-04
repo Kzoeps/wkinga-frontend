@@ -53,6 +53,7 @@ export default function CheckoutContainer() {
 					});
 				};
 				toastMe(notify)
+				setOpen(false);
 			}
 		},
 		[notify]
