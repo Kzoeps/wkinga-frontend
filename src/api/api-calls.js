@@ -12,7 +12,7 @@ export const placeOrder = async (order) => {
 
 export const uploadBeat = async (beat) => {
 	try {
-		await axios.post(`${baseURL}/beats`, beat);
+		await axios.post(`/beats`, beat);
 		return ProcessEnum.success;
 	} catch (e) {
 		return e.message;

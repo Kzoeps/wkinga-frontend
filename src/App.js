@@ -11,9 +11,7 @@ import LoginContainer from "./pages/cms/login/login-container";
 import DashboardContainer from "./pages/cms/dashboard/dashboard-container";
 import PrivateRoute from "./components/private-route/private-route";
 import { AuthProvider} from "./components/contexts/auth-context";
-import NavigationBar from './components/navigation-bar/navigationBar';
 // import Auth from './components/auth/Auth';
-import Footer from './components/footer/footer';
 import UploadContainer from "./pages/cms/upload/upload-container";
 
 function App() {

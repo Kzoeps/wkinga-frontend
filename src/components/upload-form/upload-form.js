@@ -15,7 +15,8 @@ export default function UploadForm() {
 		albumImg: false,
 		trackoutPrice: false,
 		premiumPrice: false,
-		exclusivePrice: false
+		exclusivePrice: false,
+		unlimitedLeasePrice: false
 	}
 
 	const [beatName, setBeatName] = useState('');
@@ -24,6 +25,7 @@ export default function UploadForm() {
 	const [albumImg, setAlbumImg] = useState('');
 	const [trackoutPrice, setTrackoutPrice] = useState('');
 	const [premiumPrice, setPremiumPrice] = useState('');
+	const [unlimitedLeasePrice, setUnlimitedLeasePrice] = useState('');
 	const [exclusivePrice, setExclusivePrice] = useState('');
 	const [dirtyForm, setDirtyForm] = useState(initDirtyForm);
 	const [uploadStatus, setUploadStatus] = useState('');
@@ -79,10 +81,12 @@ export default function UploadForm() {
 			beatName: beatName,
 			beatProducer: beatProd,
 			audioURL: audio,
-			albumImage: albumImg,
+			imgURL: albumImg,
 			trackoutLeasePrice: trackoutPrice,
 			premiumLeasePrice: premiumPrice,
 			exclusivePrice: exclusivePrice,
+			unlimitedLeasePrice: unlimitedLeasePrice,
+			beatDuration: 195,
 			sold: false
 		};
 	}
@@ -131,6 +135,10 @@ export default function UploadForm() {
 							   className={`${styles.formItem}`} required={true} id={'premiumlease'} type={'number'}
 							   label={'Premium Lease Price'} variant={'outlined'} value={premiumPrice}/>
 					<p className={`${utilStyles.errorMessage}`}>{dirtyForm.premiumPrice ? (premiumPrice ? '' : 'Premium Lease Price Is Required') : ''}</p>
+					<TextField onChange={(e) => handleChange(e, setUnlimitedLeasePrice, 'unlimitedLeasePrice')}
+							   className={`${styles.formItem}`} required={true} id={'unlimitedLease'} type={'number'}
+							   label={'Unlimited Lease Price'} variant={'outlined'} value={unlimitedLeasePrice}/>
+					<p className={`${utilStyles.errorMessage}`}>{dirtyForm.unlimitedLeasePrice ? (unlimitedLeasePrice ? '' : 'Unlimited Lease Price Is Required') : ''}</p>
 					<TextField onChange={(e) => handleChange(e, setExclusivePrice, 'exclusivePrice')}
 							   className={`${styles.formItem}`} required={true} id={'exclusive'} type={'number'}
 							   label={'Exclusive Price'} variant={'outlined'} value={exclusivePrice}/>
