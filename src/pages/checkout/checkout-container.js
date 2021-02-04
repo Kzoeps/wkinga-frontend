@@ -142,7 +142,7 @@ export default function CheckoutContainer() {
 	}
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (journalNumber && check) {
+		if (journalNumber && check && beatsInCart.length) {
 			// window.open(
 			// 	`mailto:jigmetashi02@gmail.com?subject=MakingOrder&body=Name: ${firstName} ${lastName}`
 			// );
