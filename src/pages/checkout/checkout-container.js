@@ -71,8 +71,8 @@ export default function CheckoutContainer() {
 		let shouldProceed = true;
 		beatsInCart.forEach(async (eachBeat) => {
 			try {
-				const beatWithJournalID = { ...eachBeat, journalID: journalNumber}
-				if (shouldProceed) await axios.post(`${baseURL}/orders`, beatWithJournalID)
+				const beatWithJournalID = { ...eachBeat, journalID: journalNumber, emailID: email}
+				if (shouldProceed) await axios.post(`/orders`, beatWithJournalID)
 			} catch (e) {
 				setPending(false);
 				shouldProceed = false;
